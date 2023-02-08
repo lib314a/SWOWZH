@@ -1,6 +1,6 @@
 [<img src= "https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png" >](SWOW)
 
-- [ ] `LDTprediction_originalData.csv` and `Nprediction_JASP.csv`
+- [ ] missing `LDTprediction_originalData.csv` and `Nprediction_JASP.csv`
 - [ ] Problems are marked with ???
 - [X] Current release is 【待定???. → added a section of version history
 
