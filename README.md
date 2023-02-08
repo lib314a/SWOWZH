@@ -1,6 +1,7 @@
 [<img src= "https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png" >](SWOW)
 
 - [ ] `LDTprediction_originalData.csv` and `Nprediction_JASP.csv`
+- [ ] Problems are marked with ???
 - [✓] Current release is 【待定???. → added a section of version history
 
 # Table of Contents
@@ -33,7 +34,7 @@ The participant task we used is called *multiple response association* <sup><a i
 
 Chinese is a demographically and culturally complex language, whose dialects and writing systems are difficult to exhaust.  In the SWOW-ZH project, we primarily *focused on Mandarin Chinese* (普通话, Putonghua) and simplified Chinese writing system, which are used in most regions of the Chinese mainland. Additionally, the native dialect of the participants was collected as a complementary information. Alternatively, another SWOW daughter project focusing on Cantonese, [SWOW-HK](https://smallworldofwords.org/hk), might be of your interest.
 
->> *CITE OUR DATA*: TBD
+> *CITE OUR DATA*: ???
 
 The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University.
 
@@ -270,7 +271,7 @@ centralityCalculating.m and similarityCalculating.m.
 <a id="xCnQ"></a>
 # Data version history
 
-- Current: TBD
+- Current: ???
 
 <a id="org124b364"></a>
 
