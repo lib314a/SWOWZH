@@ -40,8 +40,8 @@ getVGC = function(response){
 }
 
 ## Type-token ——————————————
-X.R1 = readRDS("ziyi/swowzh-120/rv-token-types-OUT-XR1.rds")
-X.R123 =readRDS("ziyi/swowzh-120/rv-token-types-OUT-XR123.rds")
+X.R1 = readRDS("./rv-token-types-OUT-XR1.rds")
+X.R123 =readRDS("./rv-token-types-OUT-XR123.rds")
 # Obtain a frequency spectrum
 R1.F          = X.R1 %>%  group_by(response) %>% summarise(Freq = n()) %>% group_by(Freq) %>% summarise(FF = n())
 R1.spc        = spc(Vm = R1.F$FF,m=R1.F$Freq)

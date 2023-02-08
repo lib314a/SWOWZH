@@ -1,6 +1,7 @@
-UNIG <- na.omit(read.delim('~/data/corpus/unigram/ngrams-00000-of-00394.gz',
-  header = F, sep = '\t'))
-SWOW <- readRDS("AS-relation-entropy-coverage-Zipf-Mandelbrot-OUT-data.rds")$zh
+## import the truncated unigram lexicon
+## *NOTE* Please access the unigram dataset at https://catalog.ldc.upenn.edu/LDC2006T13
+UNIG <- na.omit(read.delim('PATH-TO-UNIGRAM-FILE', header = F, sep = '\t'))
+SWOW <- read.csv ("../data/SWOW-ZH_raw.csv")
 
 with (UNIG,
 {
@@ -52,10 +53,11 @@ ggplot(foo.unig, aes(x = group, y = value, fill = covered)) +
     legend.key.size = unit (1, "cm")
   )
 
-SX <- read.csv("~/data/SUBTLEX-CH/SUBTLEX-CH-WF_pos.csv.gz", header = F)
+## *NOTE* Please access SUBTLEX-CH at http://crr.ugent.be/programs-data/subtitle-frequencies/subtlex-ch
+SX <- read.csv("PATH-TO-SUBTLEX-LEXICON", header = F)
 SX$V2 <- SX$V3
 SX$V3 <- NULL
-SWOW <- readRDS("AS-relation-entropy-coverage-Zipf-Mandelbrot-OUT-data.rds")$zh
+SWOW <- read.csv ("../data/SWOW-ZH_raw.csv")
 
 with (SX,
 {

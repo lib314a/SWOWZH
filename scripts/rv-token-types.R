@@ -1,8 +1,4 @@
-IN <- read.csv ("./data/SWOW-CH_R55.csv")
-names (IN) <- c ("raw1", "raw2", "raw3",
-                 "timestamp", "age", "native.language", "sex", "raw8",
-                 "city", "country", "set", "cue", "raw13", "raw14", "raw15",
-                 "R1", "R2", "R3", "raw19")
+IN <- read.csv ("../data/SWOW-ZH_raw.csv")
 
 ## Convert to long format and translate British to American or remove British ones if American exists
 importDataSWOW <- function(dataInput,response) {

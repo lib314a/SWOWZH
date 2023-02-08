@@ -1,5 +1,8 @@
 [<img src= "https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png" >](SWOW)
 
+- [ ] `LDTprediction_originalData.csv` and `Nprediction_JASP.csv`
+- [✓] Current release is 【待定???. → added a section of version history
+
 # Table of Contents
 
 1.  [About Small World of Words project (SWOW) & SWOW-ZH](#orga7a1ee6)
@@ -12,7 +15,8 @@
         2.  [Derived statistics](#orgdff87ab)
         3.  [Centralities and similarities](#org11b9387)
     5.  [Applicability in other SWOW lexicons](#org511e306)
-3.  [Publications based on SWOW](#org124b364)
+3.  [Data version history](#xCnQ)
+4.  [Publications based on SWOW](#org124b364)
 
 
 <a id="orga7a1ee6"></a>
@@ -28,6 +32,8 @@ SWOW-ZH is a daughter project of SWOW to map mental lexicon in Chinese, as the s
 The participant task we used is called *multiple response association* <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>.  The methodology is based on a continued word association task, in which participants see a cue word and are asked to give three associated responses to this cue word.  As the number of participants increases, the lexicon becomes comprehensive and efficient in representing mental lexicon.  Therefore, it focuses on the aspects of word meaning that are shared between people without imposing restrictions on what aspects of meaning should be considered.
 
 Chinese is a demographically and culturally complex language, whose dialects and writing systems are difficult to exhaust.  In the SWOW-ZH project, we primarily *focused on Mandarin Chinese* (普通话, Putonghua) and simplified Chinese writing system, which are used in most regions of the Chinese mainland. Additionally, the native dialect of the participants was collected as a complementary information. Alternatively, another SWOW daughter project focusing on Cantonese, [SWOW-HK](https://smallworldofwords.org/hk), might be of your interest.
+
+>> *CITE OUR DATA*: TBD
 
 The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University.
 
@@ -66,30 +72,15 @@ as well as compute some basic statistics.
 
 ## Obtaining the data
 
-In addition to the scripts, you will need to retrieve the word
-association data. Currently word association and participant data is
-available for 10,192 cues. The data consists of over 2 million responses
-collected between 2016 and 2023. They are currently submitted for
-publication. Note that the final version is subject to change. If you
-want to use these data for your own research, you can obtain them from
-the Small World of Words research page
-(<https://smallworldofwords.org/project/research/>).
+In addition to the scripts, you will need to retrieve the word association data. Currently word association and participant data is available for 10,192 cues. The data consists of over 2 million responses collected between 2016 and 2023. They are currently submitted for publication. Note that the final version is subject to change. If you want to use these data for your own research, you can obtain them from the Small World of Words research page (<https://smallworldofwords.org/project/research/>).
 
-To start the pileline, SWOW-ZH_raw.mat should be put into the data folder.
+To start the pileline, `SWOW-ZH_raw.(csv|mat)` should be put into the data folder.
 
-Please note that data themselves are licensed under Creative Commons
-Attribution-NonCommercial-NoDerivs 3.0 Unported License
-(<http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US>). They
-cannot be redistributed or used for commercial purposes.
+Please note that data themselves are licensed under Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License (<http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US>). They cannot be redistributed or used for commercial purposes.
 
-While the majority of the data was collected on [the SWOW platform (ZH)](https://smallworldofwords.org/zh),
-a subset was collected on another China-based surveying platform [NAODAO (脑岛)](https://www.naodao.com) using the same tasks with the same inclusion standards.
-This presumably won't detriment the reliability of the data.
+While the majority of the data was collected on [the SWOW platform (ZH)](https://smallworldofwords.org/zh), a subset was collected on another China-based surveying platform [NAODAO (脑岛)](https://www.naodao.com) using the same tasks with the same inclusion standards.  This presumably won't detriment the reliability of the data.
 
-To cite these data: 【待定???
-
-If you find any of this useful, please consider sharing the word
-association study (<https://smallworldofwords.org/zh/project>).
+If you find any of this useful, please consider sharing the word association study (<https://smallworldofwords.org/zh/project>).
 
 
 <a id="org1a6cd57"></a>
@@ -98,8 +89,6 @@ association study (<https://smallworldofwords.org/zh/project>).
 
 Since this is an ongoing project, data is regularly updated. Hence, all
 datafiles refer to a release date in its filename.
-
-Current release is 【待定???.
 
 1.  sequenceNumber: ascending sequence from 1 to the end
 
@@ -179,8 +168,13 @@ Words research page
 The preprocessing scripts consist of networkGeneration.m,
 frequencyCalculating.m, centralityCalculating.m and
 similarityCalculating.m scripts.
-【还有R的代码需要加在这里，可以发我我来写进去???
+【还有R的代码需要加在这里，可以发我我来写进去??? → Bing: R的预处理代码我记得只有繁简转换？
 
+The conversion from traditional to simplified words were applied using the `ropencc` package:
+```
+CONVERTER <- ropencc::converter(ropencc::T2S)
+```
+The library was access from (<https://github.com/Lchiffon/ropencc>).
 
 <a id="org8eea69f"></a>
 
@@ -237,10 +231,7 @@ characteristics of responses, cue words and participants.
 
 -   R3missing: The number of missing R3 responses
 
-> A histogram of the response coverage for R1 and R123 graphs can be
-> obtained from the frequencyCalculating.m script. Vocabulary growth
-> curves can be obtained with plotVocabularyGrowth.R.
-> 【如果coverage是用R算的这里需要改一下???
+> A histogram of the response coverage for R1 and R123 graphs can be obtained from the frequencyCalculating.m script. Vocabulary growth curves can be obtained with `scripts/as-vocabulary-growth.R`
 
 <a id="org11b9387"></a>
 
@@ -262,7 +253,6 @@ random walk (RW-embedding). The script is adapted from SWOW-EN and
 SWOW-RP. The output is written in the output folder named as
 similarity<sub>R1</sub> or \_R123.
 
-
 <a id="org511e306"></a>
 
 ## Applicability in other SWOW lexicons
@@ -277,6 +267,10 @@ the XX could be substituted by EN (American English), DU (Dutch) and RP
 (Rioplatense Spanish). The outputs could be loaded as inputs into
 centralityCalculating.m and similarityCalculating.m.
 
+<a id="xCnQ"></a>
+# Data version history
+
+- Current: TBD
 
 <a id="org124b364"></a>
 

@@ -1,4 +1,4 @@
-IN <- read.csv ("ziyi/swowzh-120/data/SWOWZH-release-data.csv")
+IN <- read.csv ("../data/SWOW-ZH_raw.csv")
 dim (IN)
 head (IN)
 
