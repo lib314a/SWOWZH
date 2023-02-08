@@ -2,7 +2,7 @@
 
 - [ ] `LDTprediction_originalData.csv` and `Nprediction_JASP.csv`
 - [ ] Problems are marked with ???
-- [✓] Current release is 【待定???. → added a section of version history
+- [X] Current release is 【待定???. → added a section of version history
 
 # Table of Contents
 
