@@ -32,8 +32,8 @@ Chinese is a demographically and culturally complex language, whose dialects and
 The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University.
 
 Please address questions and suggestions to:
--   DING Ziyi 丁子益 [ziyi.ecnu@gmail.com](mailto:ziyi.ecnu@gmail.com) [github](https://github.com/ZiyiDing7)
--   LI Bing 李兵 [lbing314@gmail.com](mailto:lbing314@gmail.com) [github](https://github.com/lib314a)
+-   DING Ziyi 丁子益 [<ziyi.ecnu@gmail.com>](mailto:ziyi.ecnu@gmail.com) [<ZiyiDing7@github>](https://github.com/ZiyiDing7)
+-   LI Bing 李兵 [<lbing314@gmail.com>](mailto:lbing314@gmail.com) [<lib314a@github>](https://github.com/lib314a)
 
 Affiliations:
 - Shanghai Key Laboratory of Brain Functional Genomics (Ministry of Education), Affiliated Mental Health Center (ECNU), Institute of Brain and Education Innovation, School of Psychology and Cognitive Science, East China Normal University, Shanghai, China
