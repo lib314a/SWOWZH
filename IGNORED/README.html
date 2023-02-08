@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-02-08 Wed 00:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="LI" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgc6f15a7">1. About Small World of Words project (SWOW) &amp; SWOW-ZH</a></li>
+<li><a href="#org489fc6a">2. Instructions to the repository</a>
+<ul>
+<li><a href="#orgc6f0397">2.1. Obtaining the data</a></li>
+<li><a href="#org3ce82f5">2.2. Raw data</a></li>
+<li><a href="#org24e3b67">2.3. Preprocessing scripts</a></li>
+<li><a href="#org68c01df">2.4. rocessing scripts</a></li>
+<li><a href="#org91b2003">2.5. Associative frequencies and graphs</a></li>
+<li><a href="#org88497d9">2.6. Derived statistics</a></li>
+<li><a href="#orgcbadfd0">2.7. Centralities and similarities</a></li>
+<li><a href="#orgf031392">2.8. Applicability in other SWOW lexicons</a></li>
+</ul>
+</li>
+<li><a href="#org2ab39e6">3. Publications based on SWOW</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc6f15a7" class="outline-2">
+<h2 id="orgc6f15a7"><span class="section-number-2">1.</span> About <a href="https://smallworldofwords.org/project/">Small World of Words project (SWOW)</a> &amp; SWOW-ZH</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The small world of words project is a large-scale scientific study that aims to
+build a mental dictionary or lexicon in the major languages of the world and
+make this information widely available <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+</p>
+
+<p>
+In contrast to a thesaurus or dictionary, we use word associations  to
+learn about what words mean and which ones are central in the human mind.  This
+enables psychologists, linguists, neuro-scientists and others to test new
+theories about how we represent and process language.  This knowledge could also
+be applied in a variety of ways, from learning about the difference between
+cultures, to learning (or forgetting) new words in a first or a second language.
+</p>
+
+<p>
+SWOW-ZH is a daughter project of SWOW to map mental lexicon in Chinese, as the
+suffix <code>ZH</code> stands for <i>Zhongwen</i> (中文, <i>Chinese</i>).  It was initiated to provide a
+comprehensive framework to measure the mental lexicon with regard to the Chinese
+culture and people, and the bases for comparable studies between Chinese and
+other languages.
+</p>
+
+<p>
+The participant task we used is called <i>multiple response association</i> <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>.
+The methodology is based on a continued word association task, in which
+participants see a cue word and are asked to give three associated responses to
+this cue word.  As the number of participants increases, the lexicon becomes
+comprehensive and efficient in representing mental lexicon.  Therefore, it
+focuses on the aspects of word meaning that are shared between people without
+imposing restrictions on what aspects of meaning should be considered.
+</p>
+
+<p>
+Chinese is a demographically and culturally complex language, whose dialects and
+writing systems are difficult to exhaust.  In the SWOW-ZH project, we primarily
+<i>focused on Mandarin Chinese</i> (普通话, Putonghua), which is the <i>de facto</i> standards
+for the language used in most regions of Chinese mainland. Additionally, the
+native dialect of the participants was collected as a complementary information.
+We didn't include Cantonese, but it was collected in another daughter project of
+SWOW <a href="https://smallworldofwords.org/hk">SWOW-HK</a>.
+</p>
+
+<p>
+The study was conducted in Professor CAI Qing's lab at the School of Psychology
+and Cognitive Science, East China Normal University (华东师范大学心理与认知科学
+学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne
+University. Please address questions and suggestions to:
+</p>
+<ul class="org-ul">
+<li>DING Ziyi 丁子益 <a href="mailto:ziyi.ecnu@gmail.com">ziyi.ecnu@gmail.com</a></li>
+<li>LI Bing 李兵 <a href="mailto:lbing314@gmail.com">lbing314@gmail.com</a> <a href="https://github.com/lib314a">github</a></li>
+</ul>
+
+<p>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+  </a>
+  <br />This work is licensed under a
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+    Creative Commons Attribution-NonCommercial 4.0 International License
+  </a>.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org489fc6a" class="outline-2">
+<h2 id="org489fc6a"><span class="section-number-2">2.</span> Instructions to the repository</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In this repository you will find a basic analysis pipeline for the
+Chinese SWOW project which allows you to import a preprocessing the data
+as well as compute some basic statistics.
+</p>
+</div>
+
+<div id="outline-container-orgc6f0397" class="outline-3">
+<h3 id="orgc6f0397"><span class="section-number-3">2.1.</span> Obtaining the data</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+In addition to the scripts, you will need to retrieve the word
+association data. Currently word association and participant data is
+available for 10,192 cues. The data consists of over 2 million responses
+collected between 2016 and 2023. They are currently submitted for
+publication. Note that the final version is subject to change. If you
+want to use these data for your own research, you can obtain them from
+the Small World of Words research page
+(<a href="https://smallworldofwords.org/project/research/">https://smallworldofwords.org/project/research/</a>).
+</p>
+
+<p>
+Please note that data themselves are licensed under Creative Commons
+Attribution-NonCommercial-NoDerivs 3.0 Unported License
+(<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US">http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US</a>). They
+cannot be redistributed or used for commercial purposes.
+</p>
+
+<p>
+While the majority of the data was collected on <a href="https://smallworldofwords.org/zh">the SWOW platform (ZH)</a>,
+a subset was collected on another China-based surveying platform <a href="https://www.naodao.com">NAODAO (脑岛)</a> using the same tasks with the same inclusion standards.
+This presumably won't detriment the reliability of the data.
+</p>
+
+<p>
+To cite these data: 【待定】
+</p>
+
+<p>
+If you find any of this useful, please consider sharing the word
+association study (<a href="https://smallworldofwords.org/zh/project">https://smallworldofwords.org/zh/project</a>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3ce82f5" class="outline-3">
+<h3 id="org3ce82f5"><span class="section-number-3">2.2.</span> Raw data</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Since this is an ongoing project, data is regularly updated. Hence, all
+datafiles refer to a release date in its filename.
+</p>
+
+<p>
+Current release is 【待定】.
+</p>
+
+<ol class="org-ol">
+<li>sequenceNumber: ascending sequence from 1 to the end</li>
+
+<li>sheetID: unique identifier for sheets, each sheet includes one cue
+and three responses given by one participant</li>
+
+<li>participantID: unique identifier for the participant</li>
+
+<li>created<sub>at</sub>: time and date of participation</li>
+
+<li>age: age of the participant</li>
+
+<li>nativeLanguage: native language from a short list of common
+languages</li>
+
+<li>gender: gender of the participant (Female / Male / X)</li>
+
+<li>education: Highest level of education: 1 = None, 2 = Elementary
+school, 3 = High School, 4 = College or University Bachelor, 5 =
+College or University Master</li>
+
+<li>city: city (city location when tested, might be an approximation)</li>
+
+<li>country: country (country location when tested)</li>
+
+<li>section: identifier for the snowball iteration (set1-10 = Ten sets
+collected in the SWOW platform, NAODAO = One set collected in the
+NAODAO platform (<a href="https://www.naodao.com/research/project">https://www.naodao.com/research/project</a>))</li>
+
+<li>cue: cue word</li>
+
+<li>R1Raw: raw primary associative response</li>
+
+<li>R2Raw: raw secondary associative response</li>
+
+<li>R3Raw: raw tertiary associative response</li>
+
+<li>R1: primary associative response</li>
+
+<li>R2: secondary associative response</li>
+
+<li>R3: tertiary associative response</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org24e3b67" class="outline-3">
+<h3 id="org24e3b67"><span class="section-number-3">2.3.</span> Preprocessing scripts</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+To avoid possible mistakes when read Chinese strings in MATLAB, we
+recommend that all the data should be loaded and saved as mat format. We
+also provide data in csv format for the users of other programming
+languages.
+</p>
+
+<p>
+The preprocessing scripts consist of wordCleaning.m,
+participantCleaning.m and dataFiltering.m scripts.
+</p>
+
+<p>
+wordCleaning.m: Problematic cue words and responses are marked or
+modified according to the dictionaries. The dictionaries could be found
+in the data/dictionaries folder. The input of the script,
+SWOW-ZH<sub>raw.mat</sub>, should be put in the data folder.
+</p>
+
+<p>
+participantCleaning.m: Problematic participants are deleted. The script
+could take a day to compare every response with a Chinese wordlist.
+</p>
+
+<p>
+dataFiltering.m: Remain 55 participants for each cue words. The output
+of the script is written to data/SWOW-ZH<sub>R55.mat</sub>. The participants were
+selected to favor participants with less missing responses and Mandarin
+speakers. The preprocessed data could be found in the Small World of
+Words research page
+(<a href="https://smallworldofwords.org/project/research/">https://smallworldofwords.org/project/research/</a>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org68c01df" class="outline-3">
+<h3 id="org68c01df"><span class="section-number-3">2.4.</span> rocessing scripts</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+The preprocessing scripts consist of networkGeneration.m,
+frequencyCalculating.m, centralityCalculating.m and
+similarityCalculating.m scripts.
+【还有R的代码需要加在这里，可以发我我来写进去】
+</p>
+</div>
+</div>
+
+<div id="outline-container-org91b2003" class="outline-3">
+<h3 id="org91b2003"><span class="section-number-3">2.5.</span> Associative frequencies and graphs</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+networkGeneration.m: The preprocessed data is used to derive the
+associative frequencies (i.e., the conditional probability of a response
+given a cue) and saved in the output folder named as assocFrequency<sub>R1</sub>
+or _R123, where the first column contains cue words, the second column
+contain responses, the third column contains associative frequencies
+between them. Use associative frequencies to extract the largest
+strongly connected component for graphs based on the first response (R1)
+or all responses (R123). The graphs are written to data/
+SWOW-ZH<sub>network.mat</sub>. And the adjacency matrices are written to output
+folder named as adjacencyMatrix<sub>R1</sub> or _R123 and consist of directed
+weighted matrices, where each row labeled by N cue words and each column
+labeled by N responses. Then, the N×N matrices are filled by normalized
+associative strengths. In most cases, associative frequencies will need
+to be converted to associative strengths by dividing with the sum of all
+strengths for a particular cue. Vertices that are not part of the
+largest connected component are listed in a report in the output folder
+named as lostNodes<sub>R1</sub> or _R123.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org88497d9" class="outline-3">
+<h3 id="org88497d9"><span class="section-number-3">2.6.</span> Derived statistics</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+frequencyCalculating.m: The script is used to describe the
+characteristics of responses, cue words and participants.
+</p>
+
+<ol class="org-ol">
+<li>Response statistics</li>
+</ol>
+
+<blockquote>
+<p>
+Currently the script calculates the number of types, tokens and hapax
+legomena responses (responses that only occur once). The results can
+be found in the output folder named as resStats.
+</p>
+</blockquote>
+
+<ol class="org-ol">
+<li>Cue statistics</li>
+</ol>
+
+<blockquote>
+<p>
+Only words that are part of the strongly connected component are
+considered. Results are provided for the R1 graph and the graph with
+all responses (R123). The results can be found in the output folder
+named as cueStats<sub>R1</sub> or _R123. The file includes the following:
+</p>
+</blockquote>
+
+<ul class="org-ul">
+<li>Coverage: How many of the responses are retained in the graph after
+removing those words that aren't a cue or aren't part of the strongest
+largest component.</li>
+
+<li>Unknown: The number of unknown responses</li>
+
+<li>R1missing: The number of missing R1 responses</li>
+
+<li>R2missing: The number of missing R2 responses</li>
+
+<li>R3missing: The number of missing R3 responses</li>
+</ul>
+
+<blockquote>
+<p>
+A histogram of the response coverage for R1 and R123 graphs can be
+obtained from the frequencyCalculating.m script. Vocabulary growth
+curves can be obtained with plotVocabularyGrowth.R.
+【如果coverage是用R算的这里需要改一下】
+</p>
+</blockquote>
+
+<ol class="org-ol">
+<li>Participant statistics</li>
+</ol>
+
+<blockquote>
+<p>
+Only participants remain after preprocessing are included in the
+demographic statistics. The results can be found in the output folder
+named as ppStats<sub>R1</sub> or _R123. The file includes the following: age,
+native language, gender, level of education, city and country.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgcbadfd0" class="outline-3">
+<h3 id="orgcbadfd0"><span class="section-number-3">2.7.</span> Centralities and similarities</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+centralityCalculating.m: Based on the largest strongly connected
+component for graphs, the script calculates centrality-related
+indicators including: types and tokens, in-degree, out-degree, PageRank,
+centrality and betweenness. The scrip inserts some functions from the
+Brain Connectivity Toolbox (BCT)
+(<a href="http://www.brain-connectivity-toolbox.net">http://www.brain-connectivity-toolbox.net</a>). The output is written
+in the output folder named as centrality<sub>R1</sub> or _R123.
+</p>
+
+<p>
+similarityCalculating.m: Based on the largest strongly connected
+component for graphs, the script calculates four kinds similarity
+including: cosine similarity only (AssocStrength), positive pointwise
+mutual information (PPMI), random walk (RW) and word embedding after
+random walk (RW-embedding). The script is adapted from SWOW-EN and
+SWOW-RP. The output is written in the output folder named as
+similarity<sub>R1</sub> or _R123.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf031392" class="outline-3">
+<h3 id="orgf031392"><span class="section-number-3">2.8.</span> Applicability in other SWOW lexicons</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Since other SWOWs are mainly processed by R scripts, a MATLAB scrip is
+provided thus other SWOWs could be processed by MATLAB. The SWOWs.m is
+used to count associative frequencies and generate graphs, and calculate
+in-degrees of other SWOWs. The inputs of the script are preprocessed
+data of other SWOWs put in the data/SWOWs folder. The outputs of the
+script are the graphs written to data/SWOWs/SWOW-XX<sub>network.mat</sub>. While
+the XX could be substituted by EN (American English), DU (Dutch) and RP
+(Rioplatense Spanish). The outputs could be loaded as inputs into
+centralityCalculating.m and similarityCalculating.m.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ab39e6" class="outline-2">
+<h2 id="org2ab39e6"><span class="section-number-2">3.</span> Publications based on SWOW</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Following is an exhaustive list of the publications based on or used part of the lexicons:
+</p>
+<ul class="org-ul">
+<li>Journal articles
+<ul class="org-ul">
+<li>Cox, C. R., &amp; Haebig, E. (2022). Child-oriented word associations improve models of early word learning. Behavior research methods, (), 1–22.</li>
+<li>De Deyne, S., Navarro, D. J., Collell, G., &amp; Perfors, A. (2021). Visual and affective multimodal models of word meaning in language and mind. Cognitive Science, 45(1), 12922.</li>
+<li>De Deyne, S., Navarro, D. J., Perfors, A., &amp; Storms, G. (2016). Structure at every scale: A semantic network account of the similarities between unrelated concepts. Journal of Experimental Psychology: General, 145(9), 1228–1254. <a href="http://dx.doi.org/10.1037/xge0000192">http://dx.doi.org/10.1037/xge0000192</a></li>
+<li>Jana, A., Haldar, S., &amp; Goyal, P. (2022). Network embeddings from distributional thesauri for improving static word representations. Expert Systems with Applications, 187(), 115868.</li>
+<li>Johnson, D. R., &amp; Hass, R. W. (2022). Semantic context search in creative idea generation. The Journal of Creative Behavior, 56(3), 362–381.</li>
+<li>Kumar, A. A., Balota, D. A., &amp; Steyvers, M. (2020). Distant connectivity and multiple-step priming in large-scale semantic networks. Journal of Experimental Psychology: Learning, Memory, and Cognition, 46(12), 2261.</li>
+<li>Kumar, A. A., Steyvers, M., &amp; Balota, D. A. (2021). Semantic memory search and retrieval in a novel cooperative word game: a comparison of associative and distributional semantic models. Cognitive Science, 45(10), 13053.</li>
+<li>Maxwell, N. P., &amp; Buchanan, E. M. (2020). Investigating the interaction of direct and indirect relation on memory judgments and retrieval. Cognitive Processing, 21(1), 41–53.</li>
+<li>Meersmans, K., Bruffaerts, R., Jamoulle, T., Liuzzi, A. G., De Deyne, S., Storms, G., Dupont, P., … (2020). Representation of associative and affective semantic similarity of abstract words in the lateral temporal perisylvian language regions. Neuroimage, 217(), 116892.</li>
+<li>Meersmans, K., Storms, G., De Deyne, S., Bruffaerts, R., Dupont, P., &amp; Vandenberghe, R. (2022). Orienting to different dimensions of word meaning alters the representation of word meaning in early processing regions. Cerebral Cortex, 32(15), 3302–3317.</li>
+<li>Melvie, T., Taikh, A., Gagn\'e, Christina L, &amp; Spalding, T. L. (2022). Constituent processing in compound and pseudocompound words. Canadian Journal of Experimental Psychology/Revue canadienne de psychologie exp{\'e}rimentale, (), .</li>
+<li>Richie, R., &amp; Bhatia, S. (2021). Similarity judgment within and across categories: a comprehensive model comparison. Cognitive Science, 45(8), 13030.</li>
+<li>Sarkar, S., Bhagwat, A., &amp; Mukherjee, A. (2022). A core-periphery structure-based network embedding approach. Social Network Analysis and Mining, 12(1), 1–12.</li>
+<li>Valba, O., &amp; Gorsky, A. (2022). K-clique percolation in free association networks and the possible mechanism behind the $ $7$\backslash$pm 2$$7$&plusmn;$2 law. Scientific reports, 12(1), 1–9.</li>
+<li>Valba, O., Gorsky, A., Nechaev, S., &amp; Tamm, M. (2021). Analysis of english free association network reveals mechanisms of efficient solution of remote association tests. PloS one, 16(4), 0248986.</li>
+<li>Vankrunkelsven, H., Vankelecom, L., Storms, G., De Deyne, S., &amp; Voorspoels, W. (2021). Guessing Words. In  (Eds.), Cognitive Sociolinguistics Revisited (pp. 572–583). : De Gruyter Mouton.</li>
+<li>Verheyen, S., De Deyne, S., Linsen, S., &amp; Storms, G. (2020). Lexicosemantic, affective, and distributional norms for 1,000 dutch adjectives. Behavior research methods, 52(3), 1108–1121.</li>
+<li>Wong, T. Y., Fang, Z., Yu, Y. T., Cheung, C., Hui, C. L., Elvev\aag, Brita, De Deyne, S., … (2022). Discovering the structure and organization of a free cantonese emotion-label word association graph to understand mental lexicons of emotions. Scientific Reports, 12(1), 1–12.</li>
+<li>Wulff, D. U., De Deyne, S., Aeschbach, S., &amp; Mata, R. (2022). Using network science to understand the aging lexicon: linking individuals' experience, semantic networks, and cognitive performance. Topics in Cognitive Science, 14(1), 93–110.</li>
+<li>Wulff, D. U., &amp; Mata, R. (2022). On the semantic representation of risk. Science Advances, 8(27), 1883.</li>
+</ul></li>
+<li>Proceedings, pre-prints etc
+<ul class="org-ul">
+<li>Ashok Kumar, A., Garg, K., &amp; Hawkins, R. (2021). Contextual flexibility guides communication in a cooperative language game. In , Proceedings of the Annual Meeting of the Cognitive Science Society (pp. ). : .</li>
+<li>Berger, U., Stanovsky, G., Abend, O., &amp; Frermann, L. (2022). A computational acquisition model for multimodal word categorization. arXiv preprint arXiv:2205.05974, (), .</li>
+<li>Branco, Ant\'onio, Rodrigues, Jo\~ao, Salawa, Ma\lgorzata, Branco, R., &amp; Saedi, C. (2020). Comparative probing of lexical semantics theories for cognitive plausibility and technological usefulness. arXiv preprint arXiv:2011.07997, (), .</li>
+<li>Du, Y., Wu, Y., &amp; Lan, M. (2019). Exploring human gender stereotypes with word association test. In , Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP) (pp. 6133–6143). : .</li>
+<li>Han, Z., &amp; Truex, R. (2020). Word association tests for political science. Available at SSRN 3701860, (), .</li>
+<li>Kovacs, C. J., Wilson, J. M., &amp; Kumar, A. A. (2022). Fast and frugal memory search for communication. In , Proceedings of the Annual Meeting of the Cognitive Science Society (pp. ). : .</li>
+<li>Liu, C., Cohn, T., De Deyne, S., &amp; Frermann, L. (2022). Wax: a new dataset for word association explanations. In , Proceedings of the 2nd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 12th International Joint Conference on Natural Language Processing (pp. 106–120). : .</li>
+<li>Liu, C., Cohn, T., &amp; Frermann, L. (2021). Commonsense knowledge in word associations and conceptnet. arXiv preprint arXiv:2109.09309, (), .</li>
+<li>Nedergaard, J., Smith, K., &amp; Smith, K. (2020). Are you thinking what i'm thinking? perspective-taking in a language game. In , CogSci (pp. ). : .</li>
+<li>Nighojkar, A., Khlyzova, A., &amp; Licato, J. (2022). Cognitive modeling of semantic fluency using transformers. arXiv preprint arXiv:2208.09719, (), .</li>
+<li>Petridis, S., Shin, H. V., &amp; Chilton, L. B. (2021). Symbolfinder: brainstorming diverse symbols using local semantic networks. In , The 34th Annual ACM Symposium on User Interface Software and Technology (pp. 385–399). : .</li>
+<li>Rodrigues, Jo\~ao, Branco, R., &amp; Branco, Ant\'onio (2022). Transfer learning of lexical semantic families for argumentative discourse units identification. arXiv preprint arXiv:2209.02495, (), .</li>
+<li>Rotaru, A. S. (2020). Computational explorations of semantic cognition (Doctoral dissertation). UCL (University College London), .</li>
+<li>Salawa, Ma\lgorzata (). Word embeddings from lexical ontologies: a comparative study. , (), .</li>
+<li>Sarkar, S., Bhagwat, A., &amp; Mukherjee, A. (2018). Core2vec: a core-preserving feature learning framework for networks. In , 2018 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM) (pp. 487–490). : .</li>
+<li>Siow, S., &amp; Plunkett, K. (2021). Exploring the variable effects of frequency and semantic diversity as predictors for a word's ease of acquisition in different word classes. In , Proceedings of the Annual Meeting of the Cognitive Science Society (pp. ). : .</li>
+<li>Thawani, A., Srivastava, B., &amp; Singh, A. (2019). Swow-8500: word association task for intrinsic evaluation of word embeddings. In , Proceedings of the 3rd Workshop on Evaluating Vector Space Representations for NLP (pp. 43–51). : .</li>
+<li>van Paridon, J., Liu, Q., &amp; Lupyan, G. (2021). How do blind people know that blue is cold? distributional semantics encode color-adjective associations. In , Proceedings of the Annual Meeting of the Cognitive Science Society (pp. ). : .</li>
+<li>Wulff, D. U., Aeschbach, S., De Deyne, S., &amp; Mata, R. (2022). Data from the myswow proof-of-concept study: linking individual semantic networks and cognitive performance. Journal of Open Psychology Data, 10(1), .</li>
+<li>Yang, W., &amp; Ma, X. (). Building knowledge graphs of experientially related concepts. , (), .</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+De Deyne, S., Navarro, D. J., &amp; Storms, G. (2013). Better explanations of lexical and semantic cognition using networks derived from continued rather than single-word associations. Behavior Research Methods, 45(2), 480–498. <a href="http://dx.doi.org/10.3758/s13428-012-0260-7">http://dx.doi.org/10.3758/s13428-012-0260-7</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Nelson, D. L., McEvoy, C. L., &amp; Dennis, S. (2000). What is free association and what does it measure? Memory \&amp; cognition, 28(6), 887–899.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: LI</p>
+<p class="date">Created: 2023-02-08 Wed 00:05</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
