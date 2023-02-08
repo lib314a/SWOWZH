@@ -14,42 +14,6 @@ raw = table2cell(raw);
 
 load("SWOW-ZH_network.mat"); % [net]
 
-%% Coverage
-label = net.label; % Calculate responses tokens ratio for each cue word in componets
-for k = 1:length(val)
-    eval(['G = net.Gconncomp_',val{1,k},';']);
-    eval(['pool = net.',val{1,k},';']);
-    node = table2cell(G.Nodes);
-    for i = 1:length(node)
-        node{i,2} = successors(G,node{i,1});
-    end
-    for i = 1:length(node)
-        idx = find(strcmp(label,node{i,1}));
-        node{i,3} = 0;
-        for j = 1:length(node{i,2})
-            node{i,3} = node{i,3} + length(find(strcmp(pool{idx,1},node{i,2}{j,1})));
-        end
-        node{i,4} = size(pool{idx,1},1)*size(pool{idx,1},2)-length(find(strcmp(pool{idx,1},'#Missing')));
-        node{i,5} = node{i,3}/node{i,4};
-    end
-    eval(['report.node_',val{1,k},'.all = node;']);
-end
-
-for k = 1:length(val) % Descriptive statistics of Coverage
-    eval(['data = cell2mat(report.node_',val{1,k},'.all(:,5));']);
-    name = ['report.coverage_',val{1,k},'.'];
-    eval([name,'all = data;']);
-    eval([name,'mean = mean(data);']);
-    eval([name,'median = median(data);']);
-    eval([name,'var = var(data);']);
-    eval([name,'std = std(data);']);
-    eval([name,'min = min(data);']);
-    eval([name,'max = max(data);']);
-    eval([name,'range = range(data);']);
-    eval([name,'freq = tabulate(data);']);
-    eval([name,'histogram = histogram(',name,'all);']);
-end
-
 %% Network topology (density, diameter, average shortest path length, clustering coefficient)
 for k = 1:length(val)
     eval(['G = net.Gnrm_',val{1,k},';']);
