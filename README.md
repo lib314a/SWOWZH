@@ -1,5 +1,6 @@
-# Table of Contents
 [<img src= "https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png" >](SWOW)
+
+# Table of Contents
 
 1.  [About Small World of Words project (SWOW) & SWOW-ZH](#org39588ba)
 2.  [Instructions to the repository](#orgec4a5fe)
