@@ -35,30 +35,30 @@ Chinese is a demographically and culturally complex language, whose dialects and
 
 > *CITE OUR DATA*: ???
 
-The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University.
+- The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University.
 
-Please address questions and suggestions to:
--   DING Ziyi | 丁子益 | [ziyi.ecnu@gmail.com](mailto:ziyi.ecnu@gmail.com) | [ZiyiDing7@github](https://github.com/ZiyiDing7)
--   LI Bing   | 李兵   | [lbing314@gmail.com](mailto:lbing314@gmail.com) | [lib314a@github](https://github.com/lib314a)
+- Please address questions and suggestions to:
+  -   DING Ziyi | 丁子益 | [ziyi.ecnu@gmail.com](mailto:ziyi.ecnu@gmail.com) | [ZiyiDing7@github](https://github.com/ZiyiDing7)
+  -   LI Bing   | 李兵   | [lbing314@gmail.com](mailto:lbing314@gmail.com) | [lib314a@github](https://github.com/lib314a)
 
 
-Affiliations:
-- Shanghai Key Laboratory of Brain Functional Genomics (Ministry of Education), Affiliated Mental Health Center (ECNU), Institute of Brain and Education Innovation, School of Psychology and Cognitive Science, East China Normal University, Shanghai, China
-- Shanghai Center for Brain Science and Brain-Inspired Technology, Shanghai, China
+- Affiliations:
+  - Shanghai Key Laboratory of Brain Functional Genomics (Ministry of Education), Affiliated Mental Health Center (ECNU), Institute of Brain and Education Innovation, School of Psychology and Cognitive Science, East China Normal University, Shanghai, China
+  - Shanghai Center for Brain Science and Brain-Inspired Technology, Shanghai, China
 
-Thanks:
-- This work was supported by the National Natural Science Foundation of China (grant numbers 31970987 to QC).
+- Thanks:
+  - This work was supported by the National Natural Science Foundation of China (grant numbers 31970987 to QC).
 
-License:
-<p>
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
-    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-  </a>
-  <br />This work is licensed under a
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
-    Creative Commons Attribution-NonCommercial 4.0 International License
-  </a>.
-</p>
+- License:
+  <p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+    </a>
+    <br />This work is licensed under a
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+      Creative Commons Attribution-NonCommercial 4.0 International License
+    </a>.
+  </p>
 
 
 <a id="orgec4a5fe"></a>
