@@ -1,6 +1,6 @@
 [<img src= "https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png" >](SWOW)
 
-- [X] Problems are marked with ???
+- [ ] Problems are marked with ???
 - [X] Current release is 【待定???. → added a section of version history
 
 # Table of Contents
@@ -148,12 +148,12 @@ participantCleaning.m and dataFiltering.m scripts.
 wordCleaning.m: Problematic cue words and responses are marked or
 modified according to the dictionaries. The dictionaries could be found
 in the data/dictionaries folder. The input of the script,
-SWOW-ZH<sub>raw.mat</sub>, should be put in the data folder.
+SWOW-ZH_raw.mat, should be put in the data folder.
 
 participantCleaning.m: Problematic participants are deleted. The script
 could take a day to compare every response with a Chinese wordlist.
 
-dataFiltering.m: Remain 55 participants for each cue words. The output of the script is written to data/SWOW-ZH<sub>R55.mat</sub>. The participants were selected to favor participants with less missing responses and Mandarin speakers. The preprocessed data could be found in the Small World of Words research page (<https://smallworldofwords.org/project/research/>).
+dataFiltering.m: Remain 55 participants for each cue words. The output of the script is written to data/SWOW-ZH_R55.mat. The participants were selected to favor participants with less missing responses and Mandarin speakers. The preprocessed data could be found in the Small World of Words research page (<https://smallworldofwords.org/project/research/>).
 
 The conversion from traditional to simplified words were applied using the `ropencc` package:
 ```
@@ -171,7 +171,7 @@ The preprocessing scripts consist of `networkGeneration.m`, `frequencyCalculatin
 
 # Associative frequencies and graphs
 
-- `networkGeneration.m`: The preprocessed data is used to derive the associative frequencies (i.e., the conditional probability of a response given a cue) and saved in the output folder named as assocFrequency<sub>R1</sub> or \_R123, where the first column contains cue words, the second column contain responses, the third column contains associative frequencies between them. Use associative frequencies to extract the largest strongly connected component for graphs based on the first response (R1) or all responses (R123). The graphs are written to data/ SWOW-ZH<sub>network.mat</sub>. And the adjacency matrices are written to output folder named as adjacencyMatrix<sub>R1</sub> or \_R123 and consist of directed weighted matrices, where each row labeled by N cue words and each column labeled by N responses. Then, the N×N matrices are filled by normalized associative strengths. In most cases, associative frequencies will need to be converted to associative strengths by dividing with the sum of all strengths for a particular cue. Vertices that are not part of the largest connected component are listed in a report in the output folder named as lostNodes<sub>R1</sub> or \_R123.
+- `networkGeneration.m`: The preprocessed data is used to derive the associative frequencies (i.e., the conditional probability of a response given a cue) and saved in the output folder named as assocFrequency_R1 or \_R123, where the first column contains cue words, the second column contain responses, the third column contains associative frequencies between them. Use associative frequencies to extract the largest strongly connected component for graphs based on the first response (R1) or all responses (R123). The graphs are written to data/ SWOW-ZH_network.mat. And the adjacency matrices are written to output folder named as adjacencyMatrix_R1 or \_R123 and consist of directed weighted matrices, where each row labeled by N cue words and each column labeled by N responses. Then, the N×N matrices are filled by normalized associative strengths. In most cases, associative frequencies will need to be converted to associative strengths by dividing with the sum of all strengths for a particular cue. Vertices that are not part of the largest connected component are listed in a report in the output folder named as lostNodes_R1 or \_R123.
 
 <a id="orgdff87ab"></a>
 
@@ -190,7 +190,7 @@ The preprocessing scripts consist of `networkGeneration.m`, `frequencyCalculatin
 > Only words that are part of the strongly connected component are
 > considered. Results are provided for the R1 graph and the graph with
 > all responses (R123). The results can be found in the output folder
-> named as cueStats<sub>R1</sub> or \_R123. The file includes the following:
+> named as cueStats_R1 or \_R123. The file includes the following:
 
 -   Coverage: How many of the responses are retained in the graph after
     removing those words that aren't a cue or aren't part of the strongest
@@ -210,15 +210,15 @@ The preprocessing scripts consist of `networkGeneration.m`, `frequencyCalculatin
 
 # Centralities and similarities
 
-- `centralityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates centrality-related indicators including: types and tokens, in-degree, out-degree, PageRank, centrality and betweenness. The scrip inserts some functions from the Brain Connectivity Toolbox (BCT) (<http://www.brain-connectivity-toolbox.net>). The output is written in the output folder named as centrality<sub>R1</sub> or \_R123.
+- `centralityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates centrality-related indicators including: types and tokens, in-degree, out-degree, PageRank, centrality and betweenness. The scrip inserts some functions from the Brain Connectivity Toolbox (BCT) (<http://www.brain-connectivity-toolbox.net>). The output is written in the output folder named as centrality_R1 or \_R123.
 
-- `similarityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates four kinds similarity including: cosine similarity only (AssocStrength), positive pointwise mutual information (PPMI), random walk (RW) and word embedding after random walk (RW-embedding). The script is adapted from SWOW-EN and SWOW-RP. The output is written in the output folder named as similarity<sub>R1</sub> or \_R123.
+- `similarityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates four kinds similarity including: cosine similarity only (AssocStrength), positive pointwise mutual information (PPMI), random walk (RW) and word embedding after random walk (RW-embedding). The script is adapted from SWOW-EN and SWOW-RP. The output is written in the output folder named as similarity_R1 or \_R123.
 
 <a id="org511e306"></a>
 
 ## Applicability in other SWOW lexicons
 
-Since other SWOWs are mainly processed by R scripts, a MATLAB scrip is provided thus other SWOWs could be processed by MATLAB. The SWOWs.m is used to count associative frequencies and generate graphs, and calculate in-degrees of other SWOWs. The inputs of the script are preprocessed data of other SWOWs put in the data/SWOWs folder. The outputs of the script are the graphs written to data/SWOWs/SWOW-XX<sub>network.mat</sub>. While the XX could be substituted by EN (American English), DU (Dutch) and RP (Rioplatense Spanish). The outputs could be loaded as inputs into centralityCalculating.m and similarityCalculating.m.
+Since other SWOWs are mainly processed by R scripts, a MATLAB scrip is provided thus other SWOWs could be processed by MATLAB. The SWOWs.m is used to count associative frequencies and generate graphs, and calculate in-degrees of other SWOWs. The inputs of the script are preprocessed data of other SWOWs put in the data/SWOWs folder. The outputs of the script are the graphs written to data/SWOWs/SWOW-XX_network.mat. While the XX could be substituted by EN (American English), DU (Dutch) and RP (Rioplatense Spanish). The outputs could be loaded as inputs into centralityCalculating.m and similarityCalculating.m.
 
 <a id="xCnQ"></a>
 # Data version history
