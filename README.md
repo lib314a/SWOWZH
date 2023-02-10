@@ -98,7 +98,7 @@ datafiles refer to a release date in its filename.
 
 3.  participantID: unique identifier for the participant
 
-4.  created<sub>at</sub>: time and date of participation
+4.  created_at: time and date of participation
 
 5.  age: age of the participant
 
