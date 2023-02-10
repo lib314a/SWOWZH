@@ -1,3 +1,6 @@
+## Please find `LDTprediction_originalData.csv` and `Nprediction_JASP.csv` from
+## - Tsang, Y., Huang, J., Lui, M., Xue, M., Chan, Y. F., Wang, S., & Chen, H. (2018). Meld-sch: a megastudy of lexical decision in simplified chinese. Behavior research methods, 50(5), 1763–1777.
+## - Liu, Y., Shu, H., & Li, P. (2007). Word naming and psycholinguistic norms: chinese. Behavior research methods, 39(2), 192–198.
 ## -----------------------------------------------------------------------------
 ## the LDT task
 library (lme4)
