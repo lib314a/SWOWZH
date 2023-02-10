@@ -80,4 +80,46 @@ for j = 1:length(val)
 end
 
 %% Outputs
+label = report.label_R1;
+namek = {'cosineS_R1','ppmiS_R1','rwS_R1','embS_R1'};
+count = 0;
+for k = 1:length(namek)
+    eval(['mx = report.',namek{k},';']);
+    for i = 1:length(mx)
+        for j = 1:length(mx)
+            if i ~= j
+                count = count + 1;
+                similarity_R1{count,1} = label{i};
+                similarity_R1{count,2} = label{j};
+                similarity_R1{count,k+2} = mx(i,j);
+            end
+        end
+    end
+end
+vname = {'CueWords','Responses','AssocStrength','PPMI','RW','RW-embedding'};
+similarity_R1 = cell2table(similarity_R1);
+similarity_R1.Properties.VariableNames = vname;
+writetable(similarity_R1,'output/similarity_R1.csv');
+
+label = report.label_R123;
+namek = {'cosineS_R123','ppmiS_R123','rwS_R123','embS_R123'};
+count = 0;
+for k = 1:length(namek)
+    eval(['mx = report.',namek{k},';']);
+    for i = 1:length(mx)
+        for j = 1:length(mx)
+            if i ~= j
+                count = count + 1;
+                similarity_R123{count,1} = label{i};
+                similarity_R123{count,2} = label{j};
+                similarity_R123{count,k+2} = mx(i,j);
+            end
+        end
+    end
+end
+vname = {'CueWords','Responses','AssocStrength','PPMI','RW','RW-embedding'};
+similarity_R123 = cell2table(similarity_R123);
+similarity_R123.Properties.VariableNames = vname;
+writetable(similarity_R123,'output/similarity_R123.csv');
+
 save('output/reports/similarityCalculating','report','-v7.3');
