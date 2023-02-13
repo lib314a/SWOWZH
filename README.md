@@ -35,7 +35,7 @@ Chinese is a demographically and culturally complex language, whose dialects and
 
 > *CITE OUR DATA*: ???
 
-- The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University.
+- The study was conducted in Professor CAI Qing's lab at the School of Psychology and Cognitive Science, East China Normal University (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration with Dr. Simon de Deyne at Melbourne University, who founded the SWOW project when he was under the supervision by Professor Gert Storms at University of Leuven.
 
 - Please address questions and suggestions to:
   -   DING Ziyi | 丁子益 | [ziyi.ecnu@gmail.com](mailto:ziyi.ecnu@gmail.com) | [ZiyiDing7@github](https://github.com/ZiyiDing7)
