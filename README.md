@@ -78,8 +78,6 @@ In addition to the scripts, you will need to retrieve the word association data.
 
 To start the pileline, `SWOW-ZH_raw.(csv|mat)` should be put into the data folder.
 
-Please note that data themselves are licensed under Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License (<http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US>). They cannot be redistributed or used for commercial purposes.
-
 While the majority of the data was collected on [the SWOW platform (ZH)](https://smallworldofwords.org/zh), a subset was collected on another China-based surveying platform [NAODAO (脑岛)](https://www.naodao.com) using the same tasks with the same inclusion standards.  This presumably won't detriment the reliability of the data.
 
 If you find any of this useful, please consider sharing the word association study (<https://smallworldofwords.org/zh/project>).
