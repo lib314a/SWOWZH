@@ -104,6 +104,27 @@ datafiles refer to a release date in its filename.
 6.  nativeLanguage: native language from a short list of common
     languages
 
+    - Tags in the NAODAO platform: 
+      - PUTON: Putonghua or Mandarin, which is the standards of pronunciation populated officially;
+      - SOUTHE: Southeast dialects, which represents northern and southern Fujian dialects, covering most of Fujian, Chaoshan, Hainan and Taiwan;
+      - NORTH: Northern dialects representing the three northeastern provinces and the Inner Mongolian dialect, Hebei-Yulu, Jiaodong, Liaodong and the northern part of the Hanshui River Basin;
+      - SOUTH: Southern dialects representing Cantonese in Guangxi, Guangdong, Hainan, Hong Kong and Macau; 
+      - JIANG: Jianghuai dialects, which represents Jianghuai River Basin, Subei and Lunan; 
+      - SHAN: Shan-Shaan dialects from Shaanxi and Shanxi; HAKKA in Hakka; 
+      - SOUTHW: Southwestern dialects from most of Yunguichuan, Hubei, and Hunan; 
+      - WU: Wu dialects from Jiangxi and eastern Anhui, most of Zhejiang and Shanghai; 
+      - NORTH: Northwestern dialects from Yinchuan, Lanzhou, and Xining.
+      - HAKKA: Hakka dialect speaking in Hakka.
+    - Tags in the SWOW platform:
+      - PUTON: Which is the same as NAODAO;
+      - EASTW: Which is the same as WU on NAODAO;
+      - JIANG: Which is the same as NAODAO;
+      - SHAN: Which is the same as NAODAO;
+      - HAKKAL: Which is the same as NAODAO.
+      - NORTH: Which combines NORTH and NORTHW in NAODAO;
+      - SOUTH: Which combines SOUTHE, SOUTHW, and SOUTH in NAODAO;
+
+
 7.  gender: gender of the participant (Female / Male / X)
 
 8.  education: Highest level of education: 1 = None, 2 = Elementary
