@@ -113,7 +113,7 @@ datafiles refer to a release date in its filename.
       - SHAN: Shan-Shaan dialects from Shaanxi and Shanxi; HAKKA in Hakka; 
       - SOUTHW: Southwestern dialects from most of Yunguichuan, Hubei, and Hunan; 
       - WU: Wu dialects from Jiangxi and eastern Anhui, most of Zhejiang and Shanghai; 
-      - NORTH: Northwestern dialects from Yinchuan, Lanzhou, and Xining.
+      - NORTHW: Northwestern dialects from Yinchuan, Lanzhou, and Xining.
       - HAKKA: Hakka dialect speaking in Hakka.
     - Tags in the SWOW platform:
       - PUTON: Which is the same as NAODAO;
