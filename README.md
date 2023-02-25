@@ -90,68 +90,61 @@ If you find any of this useful, please consider sharing the word association stu
 Since this is an ongoing project, data is regularly updated. Hence, all
 datafiles refer to a release date in its filename.
 
-1.  sequenceNumber: ascending sequence from 1 to the end
+1.  SequenceNumber: A system coding, ascending from 1 to the end.
 
-2.  sheetID: unique identifier for sheets, each sheet includes one cue
-    and three responses given by one participant
+2.  SheetID: Unique identifiers for trials. Each trial is made up of one cue and three responses.
 
-3.  participantID: unique identifier for the participant
+3.  ParticipantID: Unique identifiers for the participants.
 
-4.  created_at: time and date of participation
+4.  Created_at: Time and date when trials were finished.
 
-5.  age: age of the participant
+5.  Age: Age reported by participants.
 
-6.  nativeLanguage: native language from a short list of common
-    languages
+6.  NativeLanguage: Chinese dialects and Mandarin reported by participants.
 
     - Tags in the NAODAO platform: 
-      - PUTON: Putonghua or Mandarin, which is the standards of pronunciation populated officially;
-      - SOUTHE: Southeast dialects, which represents northern and southern Fujian dialects, covering most of Fujian, Chaoshan, Hainan and Taiwan;
-      - NORTH: Northern dialects representing the three northeastern provinces and the Inner Mongolian dialect, Hebei-Yulu, Jiaodong, Liaodong and the northern part of the Hanshui River Basin;
-      - SOUTH: Southern dialects representing Cantonese in Guangxi, Guangdong, Hainan, Hong Kong and Macau; 
-      - JIANG: Jianghuai dialects, which represents Jianghuai River Basin, Subei and Lunan; 
-      - SHAN: Shan-Shaan dialects from Shaanxi and Shanxi; HAKKA in Hakka; 
-      - SOUTHW: Southwestern dialects from most of Yunguichuan, Hubei, and Hunan; 
-      - WU: Wu dialects from Jiangxi and eastern Anhui, most of Zhejiang and Shanghai; 
-      - NORTHW: Northwestern dialects from Yinchuan, Lanzhou, and Xining.
-      - HAKKA: Hakka dialect speaking in Hakka.
+      - PUTON: Putonghua or Mandarin, which is the standards of pronunciation populated officially (普通话);
+      - SOUTHE: Southeast dialects, which represents northern and southern Fujian dialects, covering most of Fujian, Chaoshan, Hainan and Taiwan (东南部方言：代表为包括闽北及闽南方言，覆盖福建大部及潮汕、海南及台湾);
+      - NORTH: Northern dialects representing the three northeastern provinces and the Inner Mongolian dialect, Hebei-Yulu, Jiaodong, Liaodong and the northern part of the Hanshui River Basin (北方方言：代表为东北三省及内蒙方言、冀豫鲁、胶东、辽东和汉水流域北部);
+      - SOUTH: Southern dialects representing Cantonese in Guangxi, Guangdong, Hainan, Hong Kong and Macau (南部方言：代表为包括广西、广东和海南的平话、白话，及香港和澳门的粤语); 
+      - JIANG: Jianghuai dialects, which represents Jianghuai River Basin, Subei and Lunan (江淮方言：代表为江淮流域及苏北、鲁南); 
+      - SHAN: Shan-Shaan dialects from Shaanxi and Shanxi (陕、晋方言：代表为陕西及山西各地); 
+      - HAKKA: Hakka languages scattered all over China (客家话：代表为分布在各地的客家族语); 
+      - SOUTHW: Southwestern dialects from most of Yunguichuan, Hubei, and Hunan (西南方言：代表为云贵川鄂湘大部); 
+      - WU: Wu dialects from Jiangxi and eastern Anhui, most of Zhejiang and Shanghai (吴方言：代表为江西和安徽东部、浙江大部及上海); 
+      - NORTHW: Northwestern dialects from Yinchuan, Lanzhou, and Xining (西北方言：代表为银川、兰州、西宁).
     - Tags in the SWOW platform:
       - PUTON: Which is the same as NAODAO;
       - EASTW: Which is the same as WU on NAODAO;
       - JIANG: Which is the same as NAODAO;
       - SHAN: Which is the same as NAODAO;
-      - HAKKAL: Which is the same as NAODAO.
+      - HAKKA: Which is the same as NAODAO.
       - NORTH: Which combines NORTH and NORTHW in NAODAO;
       - SOUTH: Which combines SOUTHE, SOUTHW, and SOUTH in NAODAO;
 
+7.  Gender: Gender of the participants (Female / Male / X), including female, male and non-binary.
 
-7.  gender: gender of the participant (Female / Male / X)
+8.  Education: Level of education participants selected from: 1 = None, 2 = Elementary school, 3 = High School, 4 = College or University Bachelor, 5 = College or University Master.
 
-8.  education: Highest level of education: 1 = None, 2 = Elementary
-    school, 3 = High School, 4 = College or University Bachelor, 5 =
-    College or University Master
+9.  City: City location when tested, might be an approximation.
 
-9.  city: city (city location when tested, might be an approximation)
+10. Country: Country location when tested.
 
-10. country: country (country location when tested)
+11. Section: Identifiers for the data resources and the snowball iterations: set1-10 = Ten sets collected in the SWOW platform, NAODAO = One set collected in the NAODAO platform (<https://www.naodao.com/research/project>)).
 
-11. section: identifier for the snowball iteration (set1-10 = Ten sets
-    collected in the SWOW platform, NAODAO = One set collected in the
-    NAODAO platform (<https://www.naodao.com/research/project>))
+12. Cue: Cue word.
 
-12. cue: cue word
+13. R1Raw: Raw primary associative response.
 
-13. R1Raw: raw primary associative response
+14. R2Raw: Raw secondary associative response.
 
-14. R2Raw: raw secondary associative response
+15. R3Raw: Raw tertiary associative response.
 
-15. R3Raw: raw tertiary associative response
+16. R1: Primary associative response.
 
-16. R1: primary associative response
+17. R2: Secondary associative response.
 
-17. R2: secondary associative response
-
-18. R3: tertiary associative response
+18. R3: Tertiary associative response.
 
 
 <a id="orgc0ba651"></a>
@@ -163,18 +156,18 @@ recommend that all the data should be loaded and saved as mat format. We
 also provide data in csv format for the users of other programming
 languages.
 
-The preprocessing scripts consist of wordCleaning.m,
-participantCleaning.m and dataFiltering.m scripts.
+The preprocessing scripts consist of `wordCleaning.m`,
+`participantCleaning.m` and `dataBalancing.m` scripts.
 
-wordCleaning.m: Problematic cue words and responses are marked or
+`wordCleaning.m`: Problematic cue words and responses are marked or
 modified according to the dictionaries. The dictionaries could be found
 in the data/dictionaries folder. The input of the script,
 SWOW-ZH_raw.mat, should be put in the data folder.
 
-participantCleaning.m: Problematic participants are deleted. The script
+`participantCleaning.m`: Problematic participants are deleted. The script
 could take a day to compare every response with a Chinese wordlist.
 
-dataFiltering.m: Remain 55 participants for each cue words. The output of the script is written to data/SWOW-ZH_R55.mat. The participants were selected to favor participants with less missing responses and Mandarin speakers. The preprocessed data could be found in the Small World of Words research page (<https://smallworldofwords.org/project/research/>).
+`dataBalancing.m`: Remain 55 participants for each cue words. The output of the script is written to data/SWOW-ZH_R55.mat. The participants were selected to favor participants with less missing responses and Mandarin speakers. The preprocessed data could be found in the Small World of Words research page (<https://smallworldofwords.org/project/research/>).
 
 The conversion from traditional to simplified words were applied using the `ropencc` package:
 ```
@@ -190,13 +183,13 @@ The preprocessing scripts consist of `networkGeneration.m`, `frequencyCalculatin
 
 <a id="org8eea69f"></a>
 
-# Associative frequencies and graphs
+### Associative frequencies and graphs
 
 - `networkGeneration.m`: The preprocessed data is used to derive the associative frequencies (i.e., the conditional probability of a response given a cue) and saved in the output folder named as assocFrequency_R1 or \_R123, where the first column contains cue words, the second column contain responses, the third column contains associative frequencies between them. Use associative frequencies to extract the largest strongly connected component for graphs based on the first response (R1) or all responses (R123). The graphs are written to data/ SWOW-ZH_network.mat. And the adjacency matrices are written to output folder named as adjacencyMatrix_R1 or \_R123 and consist of directed weighted matrices, where each row labeled by N cue words and each column labeled by N responses. Then, the N×N matrices are filled by normalized associative strengths. In most cases, associative frequencies will need to be converted to associative strengths by dividing with the sum of all strengths for a particular cue. Vertices that are not part of the largest connected component are listed in a report in the output folder named as lostNodes_R1 or \_R123.
 
 <a id="orgdff87ab"></a>
 
-# Derived statistics
+### Derived statistics
 
 - `frequencyCalculating.m`: The script is used to describe the characteristics of responses, cue words and participants.
 
@@ -229,9 +222,9 @@ The preprocessing scripts consist of `networkGeneration.m`, `frequencyCalculatin
 
 <a id="org11b9387"></a>
 
-# Centralities and similarities
+### Centralities and similarities
 
-- `centralityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates centrality-related indicators including: types and tokens, in-degree, out-degree, PageRank, centrality and betweenness. The scrip inserts some functions from the Brain Connectivity Toolbox (BCT) (<http://www.brain-connectivity-toolbox.net>). The output is written in the output folder named as centrality_R1 or \_R123.
+- `centralityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates centrality-related indicators including: types and tokens, in-degree, out-degree, PageRank, clustering coefficient, centrality and betweenness. The scrip inserts some functions from the Brain Connectivity Toolbox (BCT) (<http://www.brain-connectivity-toolbox.net>). The output is written in the output folder named as centrality_R1 or \_R123.
 
 - `similarityCalculating.m`: Based on the largest strongly connected component for graphs, the script calculates four kinds similarity including: cosine similarity only (AssocStrength), positive pointwise mutual information (PPMI), random walk (RW) and word embedding after random walk (RW-embedding). The script is adapted from SWOW-EN and SWOW-RP. The output is written in the output folder named as similarity_R1 or \_R123.
 

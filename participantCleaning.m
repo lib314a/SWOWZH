@@ -189,7 +189,7 @@ for i = 1:length(raw)
     idx = [idx,find(strcmp(line,'#Repeat'))];
     if isempty(idx) == 0
         for j = 1:length(idx)
-            line{1,j} = '#Missing';
+            line{1,idx(j)} = '#Missing';
         end
     end
     raw(i,16:18) = line;
