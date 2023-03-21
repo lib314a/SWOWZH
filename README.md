@@ -74,7 +74,7 @@ as well as compute some basic statistics.
 
 ## Obtaining the data
 
-**In addition to the scripts, you will need to retrieve the word association data. Currently word association and participant data is available for 10,192 cues. The data consists of over 2 million responses collected between 2016 and 2023. They are currently submitted for publication. Note that the final version is subject to change. If you want to use these data for your own research, you can obtain them from the Small World of Words research page (<https://smallworldofwords.org/project/research/>).**
+**In addition to the scripts, you will need to retrieve the word association data, which is available on the Small World of Words research page (<https://smallworldofwords.org/project/research/>, redirecting to our OSF repository).**  Currently word association and participant data is available for 10,192 cues. The data consists of over 2 million responses collected between 2016 and 2023. **They are currently submitted for publication and will opened after publication.**
 
 To start the pileline, `SWOW-ZH_raw.(csv|mat)` should be put into the data folder.
 
