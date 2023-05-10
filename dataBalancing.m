@@ -95,7 +95,7 @@ report.outputDiscription.cues = length(unique(raw(:,12)));
 report.outputDiscription.types = length(unique(raw(:,16:18)));
 report.outputDiscription.sheets = length(raw);
 report.outputDiscription = struct2table(report.outputDiscription);
-save('output/reports/dataFiltering','report');
+save('output/reports/dataBalancing','report');
 
 raw = raw(:,1:18);
 raw = cell2table(raw);

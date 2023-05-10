@@ -47,6 +47,8 @@ for k = 1:length(val)
             AM(i,j) = AMnum(i,j)/N(i,1);
         end
     end
+    AMnum = AMnum - diag(diag(AMnum)); % Delete loops
+    AM = AM - diag(diag(AM)); % Delete loops
     eval(['net.AMnum_',val{1,k},' = AMnum;']);
     eval(['net.N_',val{1,k},' = N;']);
     eval(['net.AM_',val{1,k},' = AM;']);

@@ -1,3 +1,6 @@
+# Author: Bing Li, lbing314@gmail.com
+# Last changed: 11 April 2023
+
 ## import the truncated unigram lexicon
 ## *NOTE* Please access the unigram dataset at https://catalog.ldc.upenn.edu/LDC2006T13
 UNIG <- na.omit(read.delim('PATH-TO-UNIGRAM-FILE', header = F, sep = '\t'))

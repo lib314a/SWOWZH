@@ -1,3 +1,6 @@
+# Author: Bing Li, lbing314@gmail.com
+# Last changed: 11 April 2023
+
 ## Convert to long format and translate British to American or remove British ones if American exists
 importDataSWOW <- function(dataFile,response) {
   X       = read.csv(dataFile, header = TRUE, sep=",", dec=".",quote = "\"",encoding = "UTF-8",stringsAsFactors = FALSE)

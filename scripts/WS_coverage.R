@@ -1,3 +1,6 @@
+# Author: Bing Li, lbing314@gmail.com
+# Last changed: 11 April 2023
+
 IN <- read.csv ("../data/SWOW-ZH_raw.csv")
 dim (IN)
 head (IN)

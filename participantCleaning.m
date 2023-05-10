@@ -31,8 +31,9 @@ for i = 1:length(partdic)
     part{i,3} = [raw(idx,16);raw(idx,17);raw(idx,18)];
 end
 
-%% Too many non-words responses (> 40%), It took a while.
+%% Too many non-words responses (> 40%)
 pNonword = {}; count = 0;
+[ch,~,~] = intersect(raw(:,16:18),ch);
 for i = 1:length(part)
     idxm = find(strcmp(part{i,3},'没有了'));
     idxu = find(strcmp(part{i,3},'Unknown word'));
