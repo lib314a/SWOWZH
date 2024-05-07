@@ -21,7 +21,8 @@ editor_options:
         1.  [Associative frequencies and graphs](#org8eea69f)
         2.  [Derived statistics](#orgdff87ab)
         3.  [Centralities and similarities](#org11b9387)
-    5.  [Applicability in other SWOW lexicons](#org511e306)
+    4.  Collection, preprocessing and processing of SWOW-GPT[???]
+    6.  [Applicability in other SWOW lexicons](#org511e306)
 3.  [Data version history](#xCnQ)
 4.  [Publications based on SWOW](#org124b364)
 
@@ -248,6 +249,22 @@ modified according to the dictionaries. The dictionaries could be found
 in the data/dictionaries folder and they were editable. The input of the
 script, SWOW-ZH_raw.mat, should be put in the data folder.
 
+Editable dictionaries:
+
+1. `tradCues.(txt|mat)` and `tradCues.(txt|mat)`: Traditional Chinese cues and responses were transformed into simplified equivalents based on Open Chinese Convert library, `ropencc` package was access from (<https://github.com/Lchiffon/ropencc>).
+
+2. `englishRes.(txt|mat)`: English responses were commonly used in Mandarin, their capitalization has been corrected.
+
+3. `unsplitedRes.(txt|mat)`: Joined responses, whose participants typed two or more responses into a single response box with separators like punctuation or symbols (e.g., comma, space, plus sign, and pause sign), were separated successively to individual responses, and only the first three were processed.
+
+4. `longRes.(txt|mat)`: Long responses (length is over six) were marked with #Long, except for meaningful long words that had appeared at least twice. A meaningless long response was defined as a character string that needs adding or deleting at least one character to become a phrase.
+
+5. `symbolRes.(txt|mat)`: Non-Chinese characters, which contained non-Chinese characters (letters, symbols, numbers, and/or punctuations), were modified and kept if meaningful and appeared more than once. Other kinds of such responses were marked as #Symbol.
+
+6. `erRes.(txt|mat)`: Retroflex final (erhua or erization), which is a pronunciation feature that modifies the final sound of certain syllables, usually in the form -er (儿), was deleted from the responses.
+
+7. `SWOWZHwordlist.mat`: A Chinese word list merged from SUBTLEX-CH<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> and Unigram subset of Chinese Web 5-gram Verson 1<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>. Responses excluded in the word list were considered as non-word responses in the participants cleaning stage.
+
 `participantCleaning.m`: Problematic participants are deleted.
 
 `dataBalancing.m`: Remain 55 participants for each cue words. The output
@@ -270,12 +287,14 @@ The library was access from (<https://github.com/Lchiffon/ropencc>).
 
 ## Processing scripts
 
-The preprocessing scripts consist of `networkGeneration.m`,
+The processing scripts consist of `networkGeneration.m`,
 `frequencyCalculating.m`, `centralityCalculating.m` and
 `similarityCalculating.m` scripts in MATLAB. The equivalent scripts in R
 were adapted from SWOW-EN: `createSWOWGraph.R`,
 `createAssoStrengthTable.R`, `createResponseStats.R`, `createCueStats.R`
 and `createNetworkStatistics.R`.
+
+Additionally, `gradientValidation.m` valid sample size to achieve a fine prediction to relatedness judgment tasks<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>.
 
 <a id="org8eea69f"></a>
 
@@ -367,6 +386,38 @@ and `createNetworkStatistics.R`.
 
 <a id="org511e306"></a>
 
+### Validation of sample size
+
+`gradientValidation`: Based on the raw data after participant cleaning (`SWOW-ZH_partcleaning.m`), to finish the validation, behavior data from relatedness judgment tasks should be put into the data folder. The sample size is expanded from 20 to 80 participants per cue word for concrete words, and 20 to 120 participants per cue word for abstract words.
+
+## Collection, preprocessing and processing of SWOW-GPT 
+
+[Ziyi message: Need to recheck descriptions in this section ???]
+
+SWOW-GPT utilizes GPT-3.5-turbo through the OpenAI API to conduct the three-response free association task. The script `WS_gpt.py` contains instructions and fine-tuning parameters applied to GPT-3.5-turbo for generating associations. To ensure comparability with human-generated data, identical preprocessing and processing steps have been implemented. The preprocessing and processing scripts are written in MATLAB and are stored in SWOW-GPT folder. The organization of MATLAB scripts mirrors the approach taken for SWOW-ZH.
+
+### SWOW-GPT raw data
+
+There is four columns in `SWOW-GPT_raw.(mat|csv)`: Cue, R1Raw, R2Raw, and R3Raw, representing cue words sent to GPT-3.5-turbo, and three responses for each cue word answered by GPT-3.5-turbo.
+
+### SWOW-GPT preprocessing scripts
+
+The preprocessing scripts consist of `wordCleaning.m` and `dataBalancing.m` scripts.
+
+`wordCleaning.m`: Problematic cue words and responses are marked or
+modified according to the dictionaries. The dictionaries could be found
+in the SWOW-GPT/data/dictionaries folder and they were editable. The input of the
+script, SWOW-GPT_raw.mat, should be put in the SWOW-GPT/data folder.
+
+`dataBalancing.m`: Embed associations from GPT-3.5-turbo into human SWOW-ZH, and then remain 55 participants for each cue words. The inputs of the script include `SWOW-ZH_partcleaning.mat` in the SWOW-GPT/data folder. The output
+of the script is written to data/SWOW-GPT_R55.mat. The participants were
+selected to favor trials with less missing responses.
+
+### SWOW-GPT processing scripts
+
+The processing scripts consist of `networkGeneration.m`,
+`similarityCalculating.m` and `gradientValidation.m`.
+
 ## Applicability in other SWOW lexicons
 
 Since other SWOWs are mainly processed by R scripts, a MATLAB scrip is
@@ -375,7 +426,7 @@ used to count associative frequencies and generate graphs, and calculate
 in-degrees of other SWOWs. The inputs of the script are preprocessed
 data of other SWOWs put in the data/SWOWs folder. The outputs of the
 script are the graphs written to data/SWOWs/SWOW-XX_network.mat. While
-the XX could be substituted by EN (American English), DU (Dutch) and RP
+the XX could be substituted by EN (American English), NL (Dutch) and RP
 (Rioplatense Spanish). The outputs could be loaded as inputs into
 `centralityCalculating.m` and `similarityCalculating.m`
 
@@ -391,161 +442,140 @@ Following is an exhaustive list of the publications based on or used
 part of the lexicons:
 
 -   Journal articles
-    -   Cox, C. R., & Haebig, E. (2022). Child-oriented word
-        associations improve models of early word learning. Behavior
-        research methods, (), 1???22.
+    -   Cox, C. R., & Haebig, E. (2023). Child-oriented word
+        associations improve models of early word learning. *Behavior Research Methods, 55*(1), 16–37. <https://doi.org/10.1037/0033-295X.82.6.407>
     -   De Deyne, S., Navarro, D. J., Collell, G., & Perfors, A. (2021).
         Visual and affective multimodal models of word meaning in
-        language and mind. Cognitive Science, 45(1), 12922.
+        language and mind. *Cognitive Science, 45*(1), 12922. <https://doi.org/10.1111/cogs.12922>
     -   De Deyne, S., Navarro, D. J., Perfors, A., & Storms, G. (2016).
         Structure at every scale: A semantic network account of the
-        similarities between unrelated concepts. Journal of Experimental
-        Psychology: General, 145(9), 1228???1254.
+        similarities between unrelated concepts. *Journal of Experimental
+        Psychology: General, 145*(9), 1228-1254.
         <http://dx.doi.org/10.1037/xge0000192>
     -   Jana, A., Haldar, S., & Goyal, P. (2022). Network embeddings
         from distributional thesauri for improving static word
-        representations. Expert Systems with Applications, 187(),
-        115868. 
+        representations. *Expert Systems with Applications, 187*,
+        e115868. <https://doi.org/10.1016/j.eswa.2021.115868>
     -   Johnson, D. R., & Hass, R. W. (2022). Semantic context search in
-        creative idea generation. The Journal of Creative Behavior,
-        56(3), 362???381.
+        creative idea generation. *The Journal of Creative Behavior,
+        56*(3), 362-381. <https://doi.org/10.1002/jocb.534>
     -   Kumar, A. A., Balota, D. A., & Steyvers, M. (2020). Distant
         connectivity and multiple-step priming in large-scale semantic
-        networks. Journal of Experimental Psychology: Learning, Memory,
-        and Cognition, 46(12), 2261.
+        networks. *Journal of Experimental Psychology: Learning, Memory,
+        and Cognition, 46*(12), 2261-2276. <https://doi.org/10.1037/xlm0000793>
     -   Kumar, A. A., Steyvers, M., & Balota, D. A. (2021). Semantic
         memory search and retrieval in a novel cooperative word game: a
         comparison of associative and distributional semantic models.
-        Cognitive Science, 45(10), 13053.
+        *Cognitive Science, 45*(10), e13053. <https://doi.org/10.1111/cogs.13053>
     -   Maxwell, N. P., & Buchanan, E. M. (2020). Investigating the
         interaction of direct and indirect relation on memory judgments
-        and retrieval. Cognitive Processing, 21(1), 41???53.
+        and retrieval. *Cognitive Processing, 21*(1), 41-53. <https://doi.org/10.1007/s10339-019-00935-w>
     -   Meersmans, K., Bruffaerts, R., Jamoulle, T., Liuzzi, A. G., De
-        Deyne, S., Storms, G., Dupont, P., ??? (2020). Representation of
-        associative and affective semantic similarity of abstract words
+        Deyne, S., Storms, G., Dupont, P., & Vandenberghe, R. (2020). Representation of associative and affective semantic similarity of abstract words
         in the lateral temporal perisylvian language regions.
-        Neuroimage, 217(), 116892.
+        *NeuroImage, 217*, 116892. <https://doi.org/10.1016/j.neuroimage.2020.116892>
     -   Meersmans, K., Storms, G., De Deyne, S., Bruffaerts, R., Dupont,
         P., & Vandenberghe, R. (2022). Orienting to different dimensions
         of word meaning alters the representation of word meaning in
-        early processing regions. Cerebral Cortex, 32(15), 3302???3317.
+        early processing regions. *Cerebral Cortex, 32*(15), 3302-3317.
     -   Melvie, T., Taikh, A., Gagn\\'e, Christina L, & Spalding, T. L.
         (2022). Constituent processing in compound and pseudocompound
-        words. Canadian Journal of Experimental Psychology/Revue
-        canadienne de psychologie exp{\\'e}rimentale, (), .
+        words. *Canadian Journal of Experimental Psychology/Revue
+        canadienne de psychologie expérimentale, 77*(2), 98–114. <https://doi.org/10.1037/cep0000287>
     -   Richie, R., & Bhatia, S. (2021). Similarity judgment within and
-        across categories: a comprehensive model comparison. Cognitive
-        Science, 45(8), 13030.
+        across categories: a comprehensive model comparison. *Cognitive
+        Science, 45*(8), e13030. <https://doi.org/10.1111/cogs.13030>
     -   Sarkar, S., Bhagwat, A., & Mukherjee, A. (2022). A
         core-periphery structure-based network embedding approach.
-        Social Network Analysis and Mining, 12(1), 1???12.
+        *Social Network Analysis and Mining, 12*, 32. <https://doi.org/10.1007/s13278-021-00749-9>
     -   Valba, O., & Gorsky, A. (2022). K-clique percolation in free
-        association networks and the possible mechanism behind the \$
-        $7$\backslash$pm 2$$7$±\$2 law. Scientific reports, 12(1),
-        1???9.
+        association networks and the possible mechanism behind the 7±2 law. *Scientific Reports, 12*, 5540. <https://doi.org/10.1038/s41598-022-09499-w>
     -   Valba, O., Gorsky, A., Nechaev, S., & Tamm, M. (2021). Analysis
         of english free association network reveals mechanisms of
-        efficient solution of remote association tests. PloS one, 16(4),
-        248986. 
+        efficient solution of remote association tests. *PLOS ONE, 16*(4),
+        e248986. <https://doi.org/10.1371/journal.pone.0248986>
     -   Vankrunkelsven, H., Vankelecom, L., Storms, G., De Deyne, S., &
-        Voorspoels, W. (2021). Guessing Words. In (Eds.), Cognitive
-        Sociolinguistics Revisited (pp. 572???583). : De Gruyter Mouton.
+        Voorspoels, W. (2021). Guessing Words. In G. Kristiansen, K. Franco, S. De Pascale, L. Rosseel, & W. Zhang (Eds.), *Cognitive Sociolinguistics Revisited* (pp. 572–583). : De Gruyter Mouton.
     -   Verheyen, S., De Deyne, S., Linsen, S., & Storms, G. (2020).
         Lexicosemantic, affective, and distributional norms for 1,000
-        dutch adjectives. Behavior research methods, 52(3), 1108???1121.
-    -   Wong, T. Y., Fang, Z., Yu, Y. T., Cheung, C., Hui, C. L.,
-        Elvev\aag, Brita, De Deyne, S., ??? (2022). Discovering the
-        structure and organization of a free cantonese emotion-label
+        dutch adjectives. *Behavior Research Methods, 52*(3), 1108–1121. <https://doi.org/10.3758/s13428-019-01303-4>
+    -   Wong, T. Y., Fang, Z., Yu, Y. T., Cheung, C., Hui, C. L., Elvevåg, B., ... & Chen, E. Y.(2022).
+        Discovering the structure and organization of a free cantonese emotion-label
         word association graph to understand mental lexicons of
-        emotions. Scientific Reports, 12(1), 1???12.
+        emotions. *Scientific Reports, 12*, 19581. <https://doi.org/10.1038/s41598-022-23995-z>
     -   Wulff, D. U., De Deyne, S., Aeschbach, S., & Mata, R. (2022).
         Using network science to understand the aging lexicon: linking
         individuals' experience, semantic networks, and cognitive
-        performance. Topics in Cognitive Science, 14(1), 93???110.
+        performance. *Topics in Cognitive Science, 14*(1), 93-110. <https://doi.org/10.1111/tops.12586>
     -   Wulff, D. U., & Mata, R. (2022). On the semantic representation
-        of risk. Science Advances, 8(27), 1883.
+        of risk. *Science Advances, 8*(27), eabm1883. <https://doi.org/10.1126/sciadv.abm1883>
+    -   Yang, Y., Li, L., de Deyne, S., Li, B., Wang, J., & Cai, Q. (2024). 
+        Unraveling lexical semantics in the brain: Comparing internal, external, and hybrid language models. *Human Brain Mapping, 45*(1), e26546. <https://doi.org/10.1002/hbm.26546>
 -   Proceedings, pre-prints etc
     -   Ashok Kumar, A., Garg, K., & Hawkins, R. (2021). Contextual
         flexibility guides communication in a cooperative language game.
-        In , Proceedings of the Annual Meeting of the Cognitive Science
-        Society (pp. ). : .
+        In *Proceedings of the 43rd Annual Meeting of the Cognitive Science Society*. <https://escholarship.org/uc/item/92m138t3>
     -   Berger, U., Stanovsky, G., Abend, O., & Frermann, L. (2022). A
         computational acquisition model for multimodal word
-        categorization. arXiv preprint arXiv:2205.05974, (), .
-    -   Branco, Ant\\'onio, Rodrigues, Jo\\\~ao, Salawa, Ma\lgorzata,
-        Branco, R., & Saedi, C. (2020). Comparative probing of lexical
+        categorization. *arXiv*. <https://arxiv.org/abs/2205.05974>
+    -   Branco, A., Rodrigues, J., Salawa, M., Branco, R., & Saedi, C. (2020). Comparative probing of lexical
         semantics theories for cognitive plausibility and technological
-        usefulness. arXiv preprint arXiv:2011.07997, (), .
+        usefulness. *arXiv*. <http://arxiv.org/abs/2011.07997>
     -   Du, Y., Wu, Y., & Lan, M. (2019). Exploring human gender
-        stereotypes with word association test. In , Proceedings of the
-        2019 Conference on Empirical Methods in Natural Language
-        Processing and the 9th International Joint Conference on Natural
-        Language Processing (EMNLP-IJCNLP) (pp. 6133???6143). : .
-    -   Han, Z., & Truex, R. (2020). Word association tests for
-        political science. Available at SSRN 3701860, (), .
+        stereotypes with word association test. In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)* (pp. 6133-6143).
+    -   Han, Z., & Truex, R. (2020). Measuring political attitudes with word association.
+        (SSRN Scholarly Paper 3701860). <https://doi.org/10.2139/ssrn.3701860>
     -   Kovacs, C. J., Wilson, J. M., & Kumar, A. A. (2022). Fast and
-        frugal memory search for communication. In , Proceedings of the
-        Annual Meeting of the Cognitive Science Society (pp. ). : .
-    -   Liu, C., Cohn, T., De Deyne, S., & Frermann, L. (2022). Wax: a
-        new dataset for word association explanations. In , Proceedings
-        of the 2nd Conference of the Asia-Pacific Chapter of the
-        Association for Computational Linguistics and the 12th
-        International Joint Conference on Natural Language Processing
-        (pp. 106???120). : .
-    -   Liu, C., Cohn, T., & Frermann, L. (2021). Commonsense knowledge
-        in word associations and conceptnet. arXiv preprint
-        arXiv:2109.09309, (), .
-    -   Nedergaard, J., Smith, K., & Smith, K. (2020). Are you thinking
-        what i'm thinking? perspective-taking in a language game. In ,
-        CogSci (pp. ). : .
+        frugal memory search for communication. In *Proceedings of the Annual Meeting of the 44th Cognitive Science Society*. <https://escholarship.org/uc/item/3301p4cj>
+    -   Liu, C., Cohn, T., De Deyne, S., & Frermann, L. (2022). Wax: A
+        new dataset for word association explanations. In *Proceedings of the 2nd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 12th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)* (pp. 106-120).
+    -   Liu, C., Cohn, T., & Frermann, L. (2021). Commonsense knowledge in word associations and ConceptNet.
+        *arXiv*. <https://doi.org/10.48550/arXiv.2109.09309>
+    -   Nedergaard, J., Smith, K., & Smith, K. (2020).
+        Are you thinking what I'm thinking? Perspective-taking in a language game. In S. Denison, M. Mack, Y. Xu, & B. C. Armstrong (Eds.), In *Developing a Mind: Learning in Humans, Animals, and Machines: Proceedings for the 42nd Annual Meeting of the Cognitive Science Society* (pp. 1001-1007). Cognitive Science Society. <https://cognitivesciencesociety.org/wp-content/uploads/2020/07/cogsci20_proceedings_final.pdf>
     -   Nighojkar, A., Khlyzova, A., & Licato, J. (2022). Cognitive
-        modeling of semantic fluency using transformers. arXiv preprint
-        arXiv:2208.09719, (), .
-    -   Petridis, S., Shin, H. V., & Chilton, L. B. (2021).
-        Symbolfinder: brainstorming diverse symbols using local semantic
-        networks. In , The 34th Annual ACM Symposium on User Interface
-        Software and Technology (pp. 385???399). : .
-    -   Rodrigues, Jo\\\~ao, Branco, R., & Branco, Ant\\'onio (2022).
+        modeling of semantic fluency using transformers. *arXiv*. <http://arxiv.org/abs/2208.09719>
+    -   Petridis, S., Shin, H. V., & Chilton, L. B (2021).
+        Symbolfinder: Brainstorming diverse symbols using local semantic
+        networks. In *The 34th Annual ACM Symposium on User Interface Software and Technology* (pp. 385-399). <https://doi.org/10.1145/3472749.3474757>
+    -   Rodrigues, J., Branco, R., & Branco, A. (2022).
         Transfer learning of lexical semantic families for argumentative
-        discourse units identification. arXiv preprint arXiv:2209.02495,
-        (), .
+        discourse units identification. *arXiv*. <https://doi.org/10.48550/arXiv.2209.02495>
     -   Rotaru, A. S. (2020). Computational explorations of semantic
-        cognition (Doctoral dissertation). UCL (University College
-        London), .
-    -   Salawa, Ma\lgorzata (). Word embeddings from lexical ontologies:
-        a comparative study. , (), .
-    -   Sarkar, S., Bhagwat, A., & Mukherjee, A. (2018). Core2vec: a
-        core-preserving feature learning framework for networks. In ,
-        2018 IEEE/ACM International Conference on Advances in Social
-        Networks Analysis and Mining (ASONAM) (pp. 487???490). : .
+        cognition [Doctoral dissertation, University College London]. <https://discovery.ucl.ac.uk/id/eprint/10106344/>
+    -   Salawa, M. (2019). Word embeddings from lexical ontologies:
+        A comparative study [Master's thesis]. <http://apohllo.pl/text/mgr/salawa-embeddingi.pdf>
+    -   Sarkar, S., Bhagwat, A., & Mukherjee, A. (2018). Core2vec: A
+        core-preserving feature learning framework for networks. In *2018 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)* (pp. 487–490). <https://doi.org/10.1109/ASONAM.2018.8508693>
     -   Siow, S., & Plunkett, K. (2021). Exploring the variable effects
         of frequency and semantic diversity as predictors for a word's
-        ease of acquisition in different word classes. In , Proceedings
-        of the Annual Meeting of the Cognitive Science Society (pp. ). :
-        .
-    -   Thawani, A., Srivastava, B., & Singh, A. (2019). Swow-8500: word
-        association task for intrinsic evaluation of word embeddings. In
-        , Proceedings of the 3rd Workshop on Evaluating Vector Space
-        Representations for NLP (pp. 43???51). : .
+        ease of acquisition in different word classes. In *Proceedings of the 43rd Annual Meeting of the Cognitive Science Society*. <https://escholarship.org/uc/item/83t6n1rq>
+    -   Thawani, A., Srivastava, B., & Singh, A. (2019).SWOW-8500: word
+        association task for intrinsic evaluation of word embeddings. In A. Rogers, A. Drozd, A. Rumshisky, & Y. Goldberg (Eds.), In *Proceedings of the 3rd Workshop on Evaluating Vector Space Representations for NLP* (pp. 43–51). Association for Computational Linguistics. <https://doi.org/10.18653/v1/W19-2006>
     -   van Paridon, J., Liu, Q., & Lupyan, G. (2021). How do blind
         people know that blue is cold? distributional semantics encode
-        color-adjective associations. In , Proceedings of the Annual
-        Meeting of the Cognitive Science Society (pp. ). : .
+        color-adjective associations. In *Proceedings of the Annual Meeting of the 43rd Cognitive Science Society*. <https://escholarship.org/uc/item/6sq7h506>
     -   Wulff, D. U., Aeschbach, S., De Deyne, S., & Mata, R. (2022).
-        Data from the myswow proof-of-concept study: linking individual
-        semantic networks and cognitive performance. Journal of Open
-        Psychology Data, 10(1), .
-    -   Yang, W., & Ma, X. (). Building knowledge graphs of
-        experientially related concepts. , (), .
+        Data from the MySWOW proof-of-concept study: linking individual
+        semantic networks and cognitive performance. *Journal of Open
+        Psychology Data, 10*(1), 1-8. <https://doi.org/10.5334/jopd.55>
+    -   Yang, W., & Ma, X. (2022). Building knowledge graphs of
+        experientially related concepts. In *Proceedings of the 4th Conference on Automated Knowledge Base Construction (AKBC 2022)*. <https://akbc.ws/2022/papers/13_building_knowledge_graphs_of_e>
 
 # Footnotes
 
 <sup><a id="fn.1" href="#fnr.1">1</a></sup> De Deyne, S., Navarro, D.
 J., & Storms, G. (2013). Better explanations of lexical and semantic
 cognition using networks derived from continued rather than single-word
-associations. Behavior Research Methods, 45(2), 480???498.
+associations. *Behavior Research Methods, 45*(2), 480-498.
 <http://dx.doi.org/10.3758/s13428-012-0260-7>
 
 <sup><a id="fn.2" href="#fnr.2">2</a></sup> Nelson, D. L., McEvoy, C.
 L., & Dennis, S. (2000). What is free association and what does it
-measure? Memory \\& cognition, 28(6), 887???899.
+measure? *Memory & Cognition, 28*(6), 887-899. <https://doi.org/10.3758/BF03209337>
+
+<sup><a id="fn.3" href="#fnr.3">3</a></sup> Cai, Q., & Brysbaert, M. (2010). SUBTLEX-CH: Chinese word and character frequencies based on film subtitles. *PLOS ONE, 5*(6), e10729. <https://doi.org/10.1371/journal.pone.0010729>
+
+<sup><a id="fn.4" href="#fnr.4">4</a></sup> Liu, F., Yang, M., & Lin, D. (2010). *Chinese web 5-gram version 1* [dataset]. Linguistic Data Consortium. <https://doi.org/10.35111/647p-yt29>
+
+<sup><a id="fn.5" href="#fnr.5">5</a></sup> De Deyne, S., Cabana, Á., Li, B., Cai, Q., & McKague, M. (2020). A cross-linguistic study into the contribution of affective connotation in the lexico-semantic representation of concrete and abstract concepts. In *Proceedings of the 42nd Annual Meeting of the Cognitive Science Society: Developing a Mind: Learning in Humans, Animals, and Machines* (pp. 2776–2782). Cognitive Science Society.

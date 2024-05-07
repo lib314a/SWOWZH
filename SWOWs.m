@@ -4,7 +4,7 @@ clc;
 %% Settings
 addpath('data')
 addpath('data/SWOWs')
-SWOWs = {'en','du','rp'};
+SWOWs = {'en','nl','rp'};
 
 for x = 1:length(SWOWs)
     
@@ -12,7 +12,7 @@ for x = 1:length(SWOWs)
     if isempty(find(strcmp(SWOWs(x),'en'))) == 0 % SWOW-EN
         raw = readtable('SWOW-EN.R100.csv');
         raw = table2cell(raw(:,10:13));
-    elseif isempty(find(strcmp(SWOWs(x),'du'))) == 0 % SWOW-DU
+    elseif isempty(find(strcmp(SWOWs(x),'nl'))) == 0 % SWOW-NL
         load('DutchWordAssociations_April2012');
         raw(:,1) = data.cue;
         raw(:,2) = data.response1;
@@ -95,8 +95,8 @@ for x = 1:length(SWOWs)
     %% Outputs
     if isempty(find(strcmp(SWOWs(x),'en'))) == 0 % SWOW-EN
         save('data/SWOWs/SWOW-EN_network','net','-v7.3'); % It's larger than 2GB, takes a while to save......
-    elseif isempty(find(strcmp(SWOWs(x),'du'))) == 0 % SWOW-DU
-        save('data/SWOWs/SWOW-DU_network','net','-v7.3');
+    elseif isempty(find(strcmp(SWOWs(x),'nl'))) == 0 % SWOW-NL
+        save('data/SWOWs/SWOW-NL_network','net','-v7.3');
     elseif isempty(find(strcmp(SWOWs(x),'rp'))) == 0  % SWOW-RP
         save('data/SWOWs/SWOW-RP_network','net','-v7.3');
     end
@@ -117,10 +117,10 @@ for x = 1:length(SWOWs)
         save('data/SWOWs/centralityCalculating_EN','report');
         writetable(report.centrality_R1,'data/SWOWs/centrality_R1_EN.csv');
         writetable(report.centrality_R123,'data/SWOWs/centrality_R123_EN.csv');
-    elseif isempty(find(strcmp(SWOWs(x),'du'))) == 0 % SWOW-DU
-        save('data/SWOWs/centralityCalculating_DU','report');
-        writetable(report.centrality_R1,'data/SWOWs/centrality_R1_DU.csv');
-        writetable(report.centrality_R123,'data/SWOWs/centrality_R123_DU.csv');
+    elseif isempty(find(strcmp(SWOWs(x),'nl'))) == 0 % SWOW-NL
+        save('data/SWOWs/centralityCalculating_NL','report');
+        writetable(report.centrality_R1,'data/SWOWs/centrality_R1_NL.csv');
+        writetable(report.centrality_R123,'data/SWOWs/centrality_R123_NL.csv');
     elseif isempty(find(strcmp(SWOWs(x),'rp'))) == 0  % SWOW-RP
         save('data/SWOWs/centralityCalculating_RP','report');
         writetable(report.centrality_R1,'data/SWOWs/centrality_R1_RP.csv');
