@@ -112,6 +112,8 @@ Alternatively, another SWOW daughter project focusing on Cantonese,
 
 # Instructions to the repository
 
+*Prompt: Instead of viewing the repo in your browser, cloning it onto your local machine may be more convenient.*
+
 In this repository you will find a basic analysis pipeline for the
 Chinese SWOW project which allows you to import a preprocessing the data
 as well as compute some basic statistics.
