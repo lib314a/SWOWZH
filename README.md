@@ -1,8 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 [<img src="https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png"/>](SWOW)
 
