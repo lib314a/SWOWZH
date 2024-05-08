@@ -8,7 +8,7 @@ editor_options:
 
 -   [ ] Problems are marked with ???
 -   [x] Current release is 【待定???. → added a section of version
-    history
+    history → could be a link to smallworldofwords.org/project url
 
 # Table of Contents
 
@@ -21,7 +21,7 @@ editor_options:
         1.  [Associative frequencies and graphs](#org8eea69f)
         2.  [Derived statistics](#orgdff87ab)
         3.  [Centralities and similarities](#org11b9387)
-    4.  Collection, preprocessing and processing of SWOW-GPT[???]
+    4.  [Collection, preprocessing and processing of SWOW-GPT](#orga8bvv1)
     6.  [Applicability in other SWOW lexicons](#org511e306)
 3.  [Data version history](#xCnQ)
 4.  [Publications based on SWOW](#org124b364)
@@ -391,10 +391,13 @@ Additionally, `gradientValidation.m` valid sample size to achieve a fine predict
 `gradientValidation`: Based on the raw data after participant cleaning (`SWOW-ZH_partcleaning.m`), to finish the validation, behavior data from relatedness judgment tasks should be put into the data folder. The sample size is expanded from 20 to 80 participants per cue word for concrete words, and 20 to 120 participants per cue word for abstract words.
 
 ## Collection, preprocessing and processing of SWOW-GPT 
+<a id="orga8bvv1"></a>
 
-[Ziyi message: Need to recheck descriptions in this section ???]
+GPT-3.5-turbo was used through the OpenAI API to conduct the three-response free association task, which we refer to as *SWOW-GPT*. To ensure comparability with human-generated data, identical preprocessing and processing steps have been implemented. 
 
-SWOW-GPT utilizes GPT-3.5-turbo through the OpenAI API to conduct the three-response free association task. The script `WS_gpt.py` contains instructions and fine-tuning parameters applied to GPT-3.5-turbo for generating associations. To ensure comparability with human-generated data, identical preprocessing and processing steps have been implemented. The preprocessing and processing scripts are written in MATLAB and are stored in SWOW-GPT folder. The organization of MATLAB scripts mirrors the approach taken for SWOW-ZH.
+In the SWOW-GPT folder:
+- The script `WS_gpt.html` contains instructions and parameters applied to GPT-3.5-turbo for generating associations;
+- The preprocessing and processing scripts, in MATLAB, are organized to mirror the structure of the prep scripts for SWOW-ZH.
 
 ### SWOW-GPT raw data
 
