@@ -72,11 +72,11 @@ for k = 1:length(val)
         res{i,3*k+1} = 0;
         for j = 1:length(cue)
             idx = find(strcmp(label,cue{j,1}));
-            if isempty(find(strcmp(pool(idx,1),res{i,1}))) == 0
+            if isempty(find(strcmp(pool{idx,1},res{i,1}))) == 0
                 res{i,3*k-1} = res{i,3*k-1} + 1; % types
                 res{i,3*k} = res{i,3*k} + length(find(strcmp(pool{idx,1},res{i,1}))); % tokens
                 if length(find(strcmp(pool{idx,1},res{i,1}))) == 1
-                res{i,3*k+1} = res{i,3*k+1} + 1; % hapax
+                    res{i,3*k+1} = res{i,3*k+1} + 1; % hapax
                 end
             end
         end
