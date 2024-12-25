@@ -232,21 +232,22 @@ datafiles refer to a release date in its filename.
 
 ## Preprocessing scripts
 
-To avoid possible mistakes when read Chinese strings in MATLAB, we
-recommend that all the data should be loaded and saved as mat format. We
-also provide data in csv format for the users of other programming
-languages. The preprocessing scripts were only available in MATLAB, but
-we provided editable dictionaries for users to customize.
+To avoid potential errors when reading Chinese strings in MATLAB, we recommend
+loading and saving all data in `mat` format. We also provide data in `csv`
+format for users of other programming languages. Although the preprocessing
+scripts were primarily written in MATLAB, for the convenience of non-MATLAB
+users, we provided plain-text dictionaries in the `data/dictionaries` folder and
+`R` scripts in the `scripts` folder.
 
-The preprocessing scripts consist of `wordCleaning.m`,
-`participantCleaning.m` and `dataBalancing.m` scripts.
+The preprocessing scripts consist of `wordCleaning.(m|R)`,
+`participantCleaning.(m|R)` and `dataBalancing.(m|R)` scripts.
 
-`wordCleaning.m`: Problematic cue words and responses are marked or
+`wordCleaning.(m|R)`: Problematic cue words and responses are marked or
 modified according to the dictionaries. The dictionaries could be found
 in the data/dictionaries folder and they were editable. The input of the
-script, SWOW-ZH_raw.mat, should be put in the data folder.
+script `SWOW-ZH_raw.mat` should be put in the data folder.
 
-Editable dictionaries:
+### The dictionaries
 
 1. `tradCues.(txt|mat)` and `tradCues.(txt|mat)`: Traditional Chinese cues and responses were transformed into simplified equivalents based on Open Chinese Convert library, `ropencc` package was access from (<https://github.com/Lchiffon/ropencc>).
 
@@ -262,23 +263,26 @@ Editable dictionaries:
 
 7. `SWOWZHwordlist.mat`: A Chinese word list merged from SUBTLEX-CH<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> and Unigram subset of Chinese Web 5-gram Verson 1<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>. Responses excluded in the word list were considered as non-word responses in the participants cleaning stage.
 
-`participantCleaning.m`: Problematic participants are deleted.
+`participantCleaning.(m|R)`: Problematic participants are deleted.
 
-`dataBalancing.m`: Remain 55 participants for each cue words. The output
+`dataBalancing.(m|R)`: Remain 55 participants for each cue words. The output
 of the script is written to data/SWOW-ZH_R55.mat. The participants were
 selected to favor participants with less missing responses and Mandarin
 speakers. The preprocessed data could be found in the Small World of
 Words research page
 (<https://smallworldofwords.org/zh/project/research>).
 
-The conversion from traditional to simplified words were applied using
-the `ropencc` package:
+### *Notes* on processing traditional characters
 
-```         
+The conversion from traditional to simplified words were applied the OpenCC
+library (see [Open Chinese Convert 開放中文轉換](https://github.com/BYVoid/OpenCC)).  `R` users will find an `OpenCC`
+port for `R` called ([ropencc](https://github.com/Lchiffon/ropencc)) and test
+its text conversion like the following example:
+```r
 CONVERTER <- ropencc::converter(ropencc::T2S)
+CONVERTER["詞彙"]
+[1] "词汇"
 ```
-
-The library was access from (<https://github.com/Lchiffon/ropencc>).
 
 <a id="orga56d790"></a>
 
