@@ -6,7 +6,7 @@ if (!require(data.table)) install.packages("data.table")
 library(data.table)
 
 # Set the working directory (please replace with your actual path)
-setwd("D:/study/caigrp/SWO-ZH_R/data")
+setwd("../data")
 
 # Initialize report structure
 report <- list()
