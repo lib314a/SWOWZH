@@ -449,7 +449,9 @@ the XX could be substituted by EN (American English), NL (Dutch) and RP
 (Rioplatense Spanish). The outputs could be loaded as inputs into
 `centralityCalculating.m` and `similarityCalculating.m`
 
-<a id="xCnQ"></a> \# Data version history <https://smallworldofwords.org/zh/project/research>
+<a id="xCnQ"></a> 
+
+# Data version history <https://smallworldofwords.org/zh/project/research>
 
 -   Current: 4 November 2024
 
