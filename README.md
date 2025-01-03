@@ -1,10 +1,6 @@
 
 [<img src="https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png"/>](SWOW)
 
--   [ ] Problems are marked with ???
--   [x] Current release is 【待定???. → added a section of version
-    history → could be a link to smallworldofwords.org/project url
-
 # Table of Contents
 
 1.  [About Small World of Words project (SWOW) & SWOW-ZH](#orga7a1ee6)
@@ -63,8 +59,6 @@ participants was collected as a complementary information.
 Alternatively, another SWOW daughter project focusing on Cantonese,
 [SWOW-HK](https://smallworldofwords.org/hk), might be of your interest.
 
-> *CITE OUR DATA*: ???
-
 -   The study was conducted in Professor CAI Qing's lab at the School of
     Psychology and Cognitive Science, East China Normal University
     (华东师范大学心理与认知科学学院，蔡清教授团队), in collaboration
@@ -102,6 +96,27 @@ Alternatively, another SWOW daughter project focusing on Cantonese,
 
 -   License of the code:
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+-   Cite us: 
+    -   `APA`: Li, B., Ding, Z., De Deyne, S., & Cai, Q. (2024). A large-scale database of Mandarin Chinese word associations from the Small World of Words Project. Behavior Research Methods, 57(1), 34. http://dx.doi.org/10.3758/s13428-024-02513-1
+    -   `bibtex`:
+    ```bibtex
+      @article{li_large-scale_2024,
+	title = {A large-scale database of {Mandarin} {Chinese} word associations from the {Small} {World} of {Words} {Project}},
+	volume = {57},
+	issn = {1554-3528},
+	url = {https://link.springer.com/10.3758/s13428-024-02513-1},
+	doi = {10.3758/s13428-024-02513-1},
+	language = {en},
+	number = {1},
+	urldate = {2025-01-02},
+	journal = {Behavior Research Methods},
+	author = {Li, Bing and Ding, Ziyi and De Deyne, Simon and Cai, Qing},
+	month = dec,
+	year = {2024},
+	pages = {34},
+}
+    ```
 
 <a id="orgec4a5fe"></a>
 
@@ -274,7 +289,7 @@ Words research page
 
 ### *Notes* on processing traditional characters
 
-The conversion from traditional to simplified words were applied the OpenCC
+The conversion from traditional to simplified words were applied using the OpenCC
 library (see [Open Chinese Convert 開放中文轉換](https://github.com/BYVoid/OpenCC)).  `R` users will find an `OpenCC`
 port for `R` called ([ropencc](https://github.com/Lchiffon/ropencc)) and test
 its text conversion like the following example:
@@ -402,7 +417,7 @@ In the SWOW-GPT folder:
 
 ### SWOW-GPT raw data
 
-There is four columns in `SWOW-GPT_raw.(mat|csv)`: Cue, R1Raw, R2Raw, and R3Raw, representing cue words sent to GPT-3.5-turbo, and three responses for each cue word answered by GPT-3.5-turbo.
+There are four columns in `SWOW-GPT_raw.(mat|csv)`: Cue, R1Raw, R2Raw, and R3Raw, representing cue words sent to GPT-3.5-turbo, and three responses for each cue word answered by GPT-3.5-turbo.
 
 ### SWOW-GPT preprocessing scripts
 
@@ -434,9 +449,9 @@ the XX could be substituted by EN (American English), NL (Dutch) and RP
 (Rioplatense Spanish). The outputs could be loaded as inputs into
 `centralityCalculating.m` and `similarityCalculating.m`
 
-<a id="xCnQ"></a> \# Data version history
+<a id="xCnQ"></a> \# Data version history <https://smallworldofwords.org/zh/project/research>
 
--   Current: ???
+-   Current: 4 November 2024
 
 <a id="org124b364"></a>
 
