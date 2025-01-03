@@ -115,7 +115,7 @@ Alternatively, another SWOW daughter project focusing on Cantonese,
 	month = dec,
 	year = {2024},
 	pages = {34},
-}
+    }
     ```
 
 <a id="orgec4a5fe"></a>
