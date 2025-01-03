@@ -14,7 +14,7 @@
         3.  [Centralities and similarities](#org11b9387)
     4.  [Collection, preprocessing and processing of SWOW-GPT](#orga8bvv1)
     6.  [Applicability in other SWOW lexicons](#org511e306)
-3.  [Data version history](#xCnQ)
+3.  [Download the dataset](#xCnQ)
 4.  [Publications based on SWOW](#org124b364)
 
 <a id="orga7a1ee6"></a>
@@ -451,7 +451,9 @@ the XX could be substituted by EN (American English), NL (Dutch) and RP
 
 <a id="xCnQ"></a> 
 
-# Data version history <https://smallworldofwords.org/zh/project/research>
+# Download the dataset
+
+Access the dataset from the webpage: <https://smallworldofwords.org/zh/project/research>
 
 -   Current: 4 November 2024
 
