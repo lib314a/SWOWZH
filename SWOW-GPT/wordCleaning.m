@@ -9,7 +9,7 @@ report = struct();
 %% Inputs
 load('SWOW-GPT_raw.mat');
 vNames = respart.Properties.VariableNames;
-raw = table2cell(respart); 
+raw = table2cell(respart);
 clear respart
 
 load("tradCues.mat")
@@ -385,7 +385,9 @@ for i = 1:size(resWLer,1) % R2Raw
     if isempty(idx) == 0
         for j = 1:length(idx)
             line = {raw{idx(j),5},resWLer{i,2},raw{idx(j),7}};
-            idxin = find(cell2mat(rEr(:,1))==idx(j));
+            if isempty(rEr) == 0
+                idxin = find(cell2mat(rEr(:,1))==idx(j));
+            end
             if  isempty(idxin) == 1 % If R1Raw not in [rEr]
                 count = count + 1;
                 rEr{count,1} = idx(j);
