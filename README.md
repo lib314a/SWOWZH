@@ -1,20 +1,23 @@
 
 [<img src="https://smallworldofwords.org/img/logos/SWOW_Tag_Wide.png"/>](SWOW)
 
+![切换到中文](./README_CN.md)
+
 # Table of Contents
 
 1.  [About Small World of Words project (SWOW) & SWOW-ZH](#orga7a1ee6)
-2.  [Instructions to the repository](#org6423954)
+2.  [Download the dataset](#xCnQ)
+3.  [Instructions to the repository](#org6423954)
     1.  [Obtaining the data](#org008856a)
     2.  [Raw data](#org1a6cd57)
-    3.  [Preprocessing scripts](#orgc0ba651)
-    4.  [Processing scripts](#orga56d790)
+    3.  [MATLAB and R Languages](#org428qfma2)
+    4.  [Preprocessing scripts](#orgc0ba651)
+    5.  [Processing scripts](#orga56d790)
         1.  [Associative frequencies and graphs](#org8eea69f)
         2.  [Derived statistics](#orgdff87ab)
         3.  [Centralities and similarities](#org11b9387)
-    4.  [Collection, preprocessing and processing of SWOW-GPT](#orga8bvv1)
-    6.  [Applicability in other SWOW lexicons](#org511e306)
-3.  [Download the dataset](#xCnQ)
+    6.  [Collection, preprocessing and processing of SWOW-GPT](#orga8bvv1)
+    7.  [Applicability in other SWOW lexicons](#org511e306)
 4.  [Publications based on SWOW](#org124b364)
 
 <a id="orga7a1ee6"></a>
@@ -118,6 +121,14 @@ Alternatively, another SWOW daughter project focusing on Cantonese,
     }
     ```
 
+<a id="xCnQ"></a> 
+
+# Download the dataset
+
+Access the dataset from the webpage: <https://smallworldofwords.org/zh/project/research>
+
+-   Current: 4 November 2024
+
 <a id="orgec4a5fe"></a>
 
 # Instructions to the repository
@@ -135,8 +146,7 @@ as well as compute some basic statistics.
 In addition to the scripts, you will need to retrieve the word
 association data. Currently word association and participant data is
 available for 10,192 cues. The data consists of over 2 million responses
-collected between 2016 and 2023. They are currently submitted for
-publication. Note that the final version is subject to change. If you
+collected between 2016 and 2023. They are published. If you
 want to use these data for your own research, you can obtain them from
 the Small World of Words research page
 (<https://smallworldofwords.org/zh/project/research>).
@@ -159,7 +169,7 @@ association study (<https://smallworldofwords.org/zh/project>).
 ## Raw data
 
 Since this is an ongoing project, data is regularly updated. Hence, all
-datafiles refer to a release date in its filename.
+datafiles refer to a release date in its filename. You need to rename the data according to the README so that the scripts can properly load the data.
 
 1.  SequenceNumber: A system coding, ascending from 1 to the end.
 
@@ -243,16 +253,21 @@ datafiles refer to a release date in its filename.
 
 18. R3: Tertiary associative response.
 
-<a id="orgc0ba651"></a>
+<a id="org428qfma2"></a>
 
-## Preprocessing scripts
+## MATLAB and R Languages
+
+Scripts are available in both R and MATLAB versions. MATLAB scripts are stored 
+directly in the main folder `SWOWZH-main`, while R scripts are stored in the 
+folder `SWOWZH-main/scripts`.
 
 To avoid potential errors when reading Chinese strings in MATLAB, we recommend
 loading and saving all data in `mat` format. We also provide data in `csv`
-format for users of other programming languages. Although the preprocessing
-scripts were primarily written in MATLAB, for the convenience of non-MATLAB
-users, we provided plain-text dictionaries in the `data/dictionaries` folder and
-`R` scripts in the `scripts` folder.
+format for users of other programming languages.
+
+<a id="orgc0ba651"></a>
+
+## Preprocessing scripts
 
 The preprocessing scripts consist of `wordCleaning.(m|R)`,
 `participantCleaning.(m|R)` and `dataBalancing.(m|R)` scripts.
@@ -448,14 +463,6 @@ script are the graphs written to data/SWOWs/SWOW-XX_network.mat. While
 the XX could be substituted by EN (American English), NL (Dutch) and RP
 (Rioplatense Spanish). The outputs could be loaded as inputs into
 `centralityCalculating.m` and `similarityCalculating.m`
-
-<a id="xCnQ"></a> 
-
-# Download the dataset
-
-Access the dataset from the webpage: <https://smallworldofwords.org/zh/project/research>
-
--   Current: 4 November 2024
 
 <a id="org124b364"></a>
 
