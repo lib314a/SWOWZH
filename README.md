@@ -452,6 +452,8 @@ selected to favor trials with less missing responses.
 The processing scripts consist of `networkGeneration.m`,
 `similarityCalculating.m` and `gradientValidation.m`.
 
+`[2026-04-30 Thu]` Additional GPT-4o scripts are now available in the `SWOW-GPT/` subdirectory. 
+
 ## Applicability in other SWOW lexicons
 
 Since other SWOWs are mainly processed by R scripts, a MATLAB scrip is

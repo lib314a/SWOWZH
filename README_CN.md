@@ -299,6 +299,9 @@ CONVERTER["詞彙"]
 
 处理脚本包括`networkGeneration.m`、`similarityCalculating.m`和`gradientValidation.m`。
 
+`[2026-04-30 Thu]` `SWOW-GPT/`子目录中已更新GPT-4o脚本。
+
+
 ## 其他SWOW词库的适用性
 
 鉴于其他SWOW词库主要通过R脚本处理，现提供MATLAB脚本以便用MATLAB处理其他SWOW词库。`SWOWs.m`用于计算联想频率、生成网络及计算入度。脚本输入为放置于data/SWOWs文件夹中的其他SWOW词库预处理数据。输出为网络，保存至data/SWOWs/SWOW-XX_network.mat，其中XX可替换为EN（美式英语）、NL（荷兰语）和RP（里约普拉滕斯西班牙语）。输出可作为`centralityCalculating.m`和`similarityCalculating.m`的输入。
